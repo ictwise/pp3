@@ -5,8 +5,6 @@ from cooknride import app, db, mongo
 from cooknride.models import Cuisine, Users
 
 
-
-
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
