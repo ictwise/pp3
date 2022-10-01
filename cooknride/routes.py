@@ -10,3 +10,7 @@ from cooknride.models import Cuisine, Users
 def get_recipes():
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
