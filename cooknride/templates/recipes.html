@@ -1,32 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
+    
     {% for recipe in recipes %}
-        {{recipe.title}}<br>
-        {{recipe.date_posted}}<br>
-        {{recipe.image}}<br>
-        {{recipe.ingredients}}<br>
-        {{recipe.method}}<br>
-        {{recipe.cuisine}}<br>
-        {{recipe.user_id}}<br>
-    {% endfor %}
-
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-    </ul>
+    <div class="content">
+      <div class="grid">
+        <figure class="effect-winston ">
+          <img src="{{ url_for('static', filename='images/' + '26.jpg') }}" alt="Photo of recipe"/>
+          <figcaption>              
+            <h4><a href="#">{{recipe.title }}</a></h4>
+            <p>
+              <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
+              <a href="#"><i class="fa fa-fw fa-edit"></i></a>
+              <a href="#"><i class="fa fa-fw fa-trash-o"></i></a>
+            </p>
+          </figcaption>			
+        </figure>
+      </div>
+    </div>
+      {% endfor %}             
 
 {% endblock %}
 
