@@ -12,6 +12,60 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/get_cuisines")
+def get_cuisines():
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage cuisines!")
+        return redirect(url_for("get_cuisines"))
+
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    return render_template("cuisines.html", cuisines=cuisines)
+
+
+@app.route("/add_cuisine", methods=["GET", "POST"])
+def add_cuisine():
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage cuisines!")
+        return redirect(url_for("get_cuisines"))
+
+    if request.method == "POST":
+        cuisine = Cuisine(cuisine_name=request.form.get("cuisine_name"))
+        db.session.add(cuisine)
+        db.session.commit()
+        return redirect(url_for("get_cuisines"))
+    return render_template("add_cuisine.html")
+
+
+@app.route("/edit_cuisine/<int:cuisine_id>", methods=["GET", "POST"])
+def edit_cuisine(cuisine_id):
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage cuisines!")
+        return redirect(url_for("get_cuisines"))
+    
+    cuisine = Cuisine.query.get_or_404(cuisine_id)
+    if request.method == "POST":
+        cuisine.cuisine_name = request.form.get("cuisine_name")
+        db.session.commit()
+        return redirect(url_for("get_cuisines"))
+    return render_template("edit_cuisine.html", cuisine=cuisine)
+
+
+@app.route("/delete_cuisine/<int:cuisine_id>")
+def delete_cuisine(cuisine_id):
+    if session["user"] != "admin":
+        flash("You must be admin to manage cuisines!")
+        return redirect(url_for("cuisines"))
+
+    cuisine = Cuisine.query.get_or_404(cuisine_id)
+    db.session.delete(cuisine)
+    db.session.commit()
+    mongo.db.cuisines.delete_many({"cuisine_id": str(cuisine_id)})
+    return redirect(url_for("get_cuisines"))
+
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -88,3 +142,6 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+
