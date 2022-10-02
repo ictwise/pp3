@@ -12,6 +12,30 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if "user" not in session:
+        flash("You need to be logged in to add a recipe")
+        return redirect(url_for("get_recipes"))
+
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        recipe = {
+            "cuisine_id": request.form.get("cuisine_id"),
+            "title": request.form.get("title"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "date_posted": request.form.get("date_posted"),
+            "user_id": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    return render_template("add_recipe.html", cuisines=cuisines)
+
+
 @app.route("/get_cuisines")
 def get_cuisines():
 
