@@ -46,6 +46,20 @@ function validateMaterializeSelect() {
 }
 });
 
+// Show Image Preview
+// Sourced from http://jsfiddle.net/2d7axmdr
+function recipeImg() {
+	// For recipes
+	$(".new-img").css("display", "flex");
+	$(".current-img").css("display", "none");
+	var url = $("#recipe_img").val();
+	$('.img-window').attr('src', url);
+}
+
+
+//Back to top btn
+//Get the button:
+mybutton = document.getElementById("myBtn");
 
 
 

@@ -1,8 +1,13 @@
 from flask import flash, render_template, request, redirect, session, url_for
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_uploads import UploadSet, configure_uploads, IMAGES, DATA, ALL
+from werkzeug.datastructures import FileStorage
+from werkzeug.utils import secure_filename
 from cooknride import app, db, mongo
 from cooknride.models import Cuisine, Users
+import os
+images = UploadSet('images', IMAGES)
 
 
 @app.route("/")
@@ -19,19 +24,24 @@ def add_recipe():
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
+
+        file = request.files['file']
+        
+        if file:
+            file.save(os.path.join(app.config['UPLOAD_DIRECTORY'],
+                                   secure_filename(file.filename)))      
+
+        return redirect(url_for("get_recipes"))
+        
         recipe = {
             "cuisine_id": request.form.get("cuisine_id"),
             "title": request.form.get("title"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
-            "date_posted": request.form.get("date_posted"),
+            "ingredients": request.form.get("recipe_ingredients"),
+            "date_posted": request.form.get("date_posted "),
             "user_id": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
-
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     return render_template("add_recipe.html", cuisines=cuisines)
 
@@ -87,7 +97,6 @@ def delete_cuisine(cuisine_id):
     db.session.commit()
     mongo.db.cuisines.delete_many({"cuisine_id": str(cuisine_id)})
     return redirect(url_for("get_cuisines"))
-
 
 
 @app.route("/register", methods=["GET", "POST"])
