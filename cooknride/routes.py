@@ -27,30 +27,29 @@ def add_recipe():
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
- 
-
         if request.files:
 
-                    file = request.files['file']
+            file = request.files['file']
 
-                    if file:
-                        filename = file.save(os.path.join(
-                        app.config["UPLOADED_IMAGES_DEST"], 
-                        secure_filename(file.filename)
-                        ))
+        if file:
+            filename = file.save(os.path.join(
+                                            app.config["UPLOADED_IMAGES_DEST"], 
+                                            secure_filename(file.filename)
+            ))
 
-        recipe = {
-            "cuisine_id": request.form.get("cuisine_id"),
-            "title": request.form.get("title"),
-            "ingredients": request.form.get("ingredients"),
-            "date_posted": request.form.get("date_posted"),
-            "image": ("cooknride/static/images/" + secure_filename(file.filename)),
-            "user_id": session["user"]
-        }
-        
-        mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully Added")
+    recipe = {
+        "cuisine_id": request.form.get("cuisine_id"),
+        "title": request.form.get("title"),
+        "ingredients": request.form.get("ingredients"),
+        "date_posted": request.form.get("date_posted"),
+        "image": ("cooknride/static/images/" + secure_filename(file.filename)),
+        "user_id": session["user"]
+    }
+    mongo.db.recipes.insert_one(recipe)
+
+    flash("Recipe Successfully Added")
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+
     return render_template("add_recipe.html", cuisines=cuisines)
 
 
@@ -64,13 +63,11 @@ def upload_image():
 
             if file:
                 file.save(os.path.join(
-                app.config["UPLOADED_IMAGES_DEST"], 
-                secure_filename(file.filename)
-                ))
-
+                                        app.config["UPLOADED_IMAGES_DEST"], 
+                                        secure_filename(file.filename)
+                                        ))
 
     return render_template("add_recipe.html")
-
 
 
 @app.route("/get_cuisines")

@@ -1,5 +1,6 @@
 import os
 import re
+import cloudinary as Cloud
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -23,6 +24,11 @@ app.config["UPLOADED_IMAGES_DEST"] = "cooknride/static/images"
 app.config["UPLOAD_DIRECTORY"] = "cooknride/static/images/"
 configure_uploads(app, images)
 
+Cloud.config.update = ({
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
+})
 
 
 if os.environ.get("DEVELOPMENT") == "True":
