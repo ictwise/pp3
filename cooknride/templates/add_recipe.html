@@ -23,12 +23,28 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="title" name="Recipe Name" minlength="3"
+                    <textarea id="title" name="title" minlength="3"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="title">Recipe</label>
                 </div>
             </div>
             
+        <!-- image -->
+        <form action="/upload_image" method="POST" enctype="multipart/form-data">
+
+            <!-- image -->
+<div class="form-group">
+
+<div class="custom-file">
+<input type="file"class="custom-file-input" name="file"  id="file">
+<label class="custom-file-label" for="image">Select image...</label>
+</div>
+
+<button type="submit" class="btn btn-large">Upload image</button>
+</form>
+
+
+
             <!-- ingredients -->
             <div class="row">
                 <div class="input-field col s12">
@@ -39,22 +55,7 @@
                 </div>
             </div>
 
-             <!-- Image -->
-             <div class="row">
-                
-                <div class="col s12 xl6 offset-xl3 white-background z-depth-2">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>Add an Image</span>
-                            <input type="file" name="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" name="filepath">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+                       
             <!-- method -->
             <div class="row">
                 <div class="input-field col s12">
@@ -74,8 +75,16 @@
                 </div>
             </div>
             
-
-
+            <div class="row">
+                <div class=""input-field col s12"">
+                    <div class="row">
+                        <h3 class="light-blue-text text-darken-4">
+                            upload image
+                        </h3>
+        
+                        
+        
+                                             
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">

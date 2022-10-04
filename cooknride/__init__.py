@@ -19,15 +19,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 app.secret_key = os.environ.get("SECRET_KEY")
 # config for image uploads
 images = UploadSet('images', IMAGES)
-app.config["UPLOADED_IMAGES_DEST"] = "static/images"
+app.config["UPLOADED_IMAGES_DEST"] = "cooknride/static/images"
 app.config["UPLOAD_DIRECTORY"] = "cooknride/static/images/"
 configure_uploads(app, images)
 
-cloudinary.config( 
-                    cloud_name="djnbzkd3z",
-                    api_key="932831466982918", 
-                    api_secret="fUTJZMmuWUglHVe_QigZTqgE5kc" 
-)
+
 
 if os.environ.get("DEVELOPMENT") == "True":
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
