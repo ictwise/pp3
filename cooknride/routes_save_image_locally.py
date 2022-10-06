@@ -19,6 +19,22 @@ def get_recipes():
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
 
+@app.route('/upload_image', methods=["GET", "POST"])
+def upload_image():
+   
+    if request.method == "POST":
+        if request.files:
+            file = request.files['file']
+            if file:
+                file.save(os.path.join(
+                                        app.config["UPLOADED_IMAGES_DEST"], 
+                                        secure_filename(file.filename)
+                                        ))
+
+    return render_template("add_recipe.html")
+
+
+
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -31,50 +47,26 @@ def add_recipe():
 
             file = request.files['file']
 
-        if file:
-            filename = cloudinary.uploader.upload(file_to_upload)
-            app.logger.info(filename)
+            if file:
+                filename = file.save(os.path.join(
+                                                app.config["UPLOADED_IMAGES_DEST"], 
+                                                secure_filename(file.filename)
+                ))
 
-        from flask import jsonify
-        return jsonify(filename)
-
-
-    recipe = {
-        "cuisine_id": request.form.get("cuisine_id"),
-        "title": request.form.get("title"),
-        "ingredients": request.form.get("ingredients"),
-        "date_posted": request.form.get("date_posted"),
-        "image": ("cooknride/static/images/" + secure_filename(file.filename)),
-        "user_id": session["user"]
-    }
-    mongo.db.recipes.insert_one(recipe)
+                recipe = {
+                    "cuisine_id": request.form.get("cuisine_id"),
+                    "title": request.form.get("title"),
+                    "ingredients": request.form.get("ingredients"),
+                    "date_posted": request.form.get("date_posted"),
+                    "image": ("cooknride/static/images/" + secure_filename(file.filename)),
+                    "user_id": session["user"]
+                }
+                mongo.db.recipes.insert_one(recipe)
 
     flash("Recipe Successfully Added")
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
 
     return render_template("add_recipe.html", cuisines=cuisines)
-
-
-
-
-
-
-@app.route("/upload_image", methods=['POST'])
-def upload_image():
-    app.logger.info('in upload route')
-    cloud.config(cloud_name=os.getenv('CLOUD_NAME'), 
-                        api_key=os.getenv('API_KEY'), 
-                        api_secret=os.getenv('API_SECRET'))
-    upload_result = None
-    if request.method == 'POST':
-        file_to_upload = request.files['file']
-    app.logger.info('%s file_to_upload', file_to_upload)
-    if file:
-        upload_result = cloudinary.uploader.upload(file_to_upload)
-        app.logger.info(upload_result)
-        return jsonify(upload_result)
-
-    return render_template("add_recipe.html")
 
 
 @app.route("/get_cuisines")
@@ -206,6 +198,5 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
 
 

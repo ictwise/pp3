@@ -3,20 +3,15 @@
 
     
     {% for recipe in recipes %}
+    
     <div class="content">
       <div class="grid">
-        <figure class="effect-winston ">
-          <img src="{{ url_for('static', filename='images/' + 'default.jpg') }}" alt="Photo of recipe"/>
-          <figcaption>              
-            <h4><a href="#">{{recipe.title }}</a></h4>
-            <p>
-              <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
-              <a href="#"><i class="fa fa-fw fa-edit"></i></a>
-              <a href="#"><i class="fa fa-fw fa-trash-o"></i></a>
-            </p>
-          </figcaption>			
-        </figure>
+              <h4><a href="#">{{recipe.title }}</a></h4>
+              <img src="{{ recipe.image }}" width=300" height="140">
       </div>
+      
+      
+           
     </div>
       {% endfor %}             
 

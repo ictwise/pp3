@@ -30,17 +30,22 @@
             </div>
             
         <!-- image -->
-        
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="image" name="image" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="image">image</label>
-                </div>
-            </div>
+        <form action="/upload_image" method="POST" enctype="multipart/form-data">
 
-           <!-- ingredients -->
+            <!-- image -->
+<div class="form-group">
+
+<div class="custom-file">
+<input type="file"class="custom-file-input" name="file"  id="file">
+<label class="custom-file-label" for="image">Select image...</label>
+</div>
+
+<button type="submit" class="btn btn-large">Upload image</button>
+</form>
+
+
+
+            <!-- ingredients -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -50,7 +55,7 @@
                 </div>
             </div>
 
-                      
+                       
             <!-- method -->
             <div class="row">
                 <div class="input-field col s12">
