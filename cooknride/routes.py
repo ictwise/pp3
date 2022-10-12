@@ -96,6 +96,21 @@ def delete_cuisine(cuisine_id):
     return redirect(url_for("get_cuisines"))
 
 
+@app.route("/delete_recipe/<_id>")
+def delete_recipe(_id):
+   
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
+
+    if "user" not in session or session["user"] != recipe["user_id"]:
+        flash("You can only delete your own recipes!")
+        return redirect(url_for("recipes"))
+
+    mongo.db.recipes.delete_many({"_id": ObjectId(_id)})
+    flash("Recipe deleted!")
+    return redirect(url_for("get_recipes"))
+
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

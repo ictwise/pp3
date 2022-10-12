@@ -3,15 +3,24 @@
 
     
     {% for recipe in recipes %}
-    
-    <div class="content">
-      <div class="grid">
-              <h4><a href="#">{{recipe.title }}</a></h4>
-              <img src="{{ recipe.image }}" width=300" height="140">
-      </div>
-      
-      
+   
+    <div class="row">
+      <div class="col s12 m4 l2">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ recipe.image }}" width="400" height="200">
            
+          </div>
+          <div class="card-content">
+            <span class="card-title strong">{{ recipe.title }}</span>
+           
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('delete_recipe',  _id=recipe._id) }}"class="btn-small green accent-4">Delete Recipe</a>
+                       <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
     </div>
       {% endfor %}             
 
