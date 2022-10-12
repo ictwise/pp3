@@ -34,12 +34,12 @@ def add_recipe():
                   "date_posted": request.form.get("date_posted"),
                   "image": request.form.get("image"),
                   "user_id": session["user"]
-                   }
+        }
         mongo.db.recipes.insert_one(recipe)
-
-    flash("Recipe Successfully Added")
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+        
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
-
     return render_template("add_recipe.html", cuisines=cuisines)
 
 
