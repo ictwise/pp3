@@ -16,31 +16,10 @@ images = UploadSet('images', IMAGES)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/add_recipe", methods=["GET", "POST"])
-def add_recipe():
-    if "user" not in session:
-        flash("You need to be logged in to add a recipe")
-        return redirect(url_for("get_recipes"))
-
-    if request.method == "POST":
-        recipe = {  
-                  "cuisine_id": request.form.get("cuisine_id"),
-                  "title": request.form.get("title"),
-                  "ingredients": request.form.get("ingredients"),
-                  "date_posted": request.form.get("date_posted"),
-                  "image": request.form.get("image"),
-                  "user_id": session["user"]
-        }
-        mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
-        
-    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
-    return render_template("add_recipe.html", cuisines=cuisines)
 
 
 @app.route("/get_cuisines")
@@ -92,8 +71,60 @@ def delete_cuisine(cuisine_id):
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     db.session.delete(cuisine)
     db.session.commit()
-    mongo.db.cuisines.delete_many({"cuisine_id": str(cuisine_id)})
+    mongo.db.recipes.delete_many({"cuisine_id": str(cuisine_id)})
     return redirect(url_for("get_cuisines"))
+    
+
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if "user" not in session:
+        flash("You need to be logged in to add a recipe")
+        return redirect(url_for("get_recipes"))
+
+    if request.method == "POST":
+        recipe = {  
+                  "cuisine_id": request.form.get("cuisine_id"),
+                  "title": request.form.get("title"),
+                  "ingredients": request.form.get("ingredients"),
+                  "date_posted": request.form.get("date_posted"),
+                  "image": request.form.get("image"),
+                  "user_id": session["user"],
+                  "method": request.form.get("method")
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    return render_template("add_recipe.html", cuisines=cuisines)
+
+
+@app.route("/edit_recipe/<_id>", methods=["GET", "POST"])
+def edit_recipe(_id):
+    
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
+            
+    if "user" not in session or session["user"] != recipe["user_id"]:
+        flash("You can only edit your own recipes!")
+        return redirect(url_for("get_recipes"))
+
+    if request.method == "POST":
+        submit = {  
+                  "cuisine_id": request.form.get("cuisine_id"),
+                  "title": request.form.get("title"),
+                  "ingredients": request.form.get("ingredients"),
+                  "date_posted": request.form.get("date_posted"),
+                  "image": request.form.get("image"),
+                  "method": request.form.get("method"),
+                  "user_id": session["user"]
+        }
+        mongo.db.recipes.update_one({'_id': ObjectId(_id)}, {'$set': submit})
+        flash("Recipe Successfully Updated")
+                                
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    return render_template("edit_recipe.html", 
+                           recipe=recipe, cuisines=cuisines)
+    
 
 
 @app.route("/delete_recipe/<_id>")
