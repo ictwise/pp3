@@ -24,7 +24,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="title" name="title" minlength="3"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="200" pattern="^[^ ].+[^ ]$" class="materialize-textarea validate" required></textarea>
                     <label for="title">Recipe</label>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="image" name="image" minlength="5"
+                    <textarea id="image" pattern="^[^ ].+[^ ]$" name="image" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="image">image</label>
                 </div>
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="ingredients" name="ingredients" minlength="5"
+                    <textarea id="ingredients" name="ingredients" pattern="^[^ ].+[^ ]$" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="ingredients">Ingredients</label>
                 </div>
@@ -56,15 +56,15 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="method" name="method" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="200" pattern="^[^ ].+[^ ]$" class="materialize-textarea validate" required></textarea>
                     <label for="method">Method</label>
                 </div>
             </div>
 
-            <!--  date picker -->
+            <!--  date  -->
             <div class="row">
                 <div class="input-field col s12" value="Get Date (DD/MM/YYYY)>
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                    <i> class="fas fa-calendar-alt prefix light-blue-text text-darken-4"</i>
                     
                     <label for="date_posted">Date Created</label>
 
