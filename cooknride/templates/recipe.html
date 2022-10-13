@@ -1,19 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                <h3 class="center-align light-blue-text text-darken-4">
-                    {{ recipe.title }}
-                </h3>
-                <p class="center-align">
-                    {{ recipe.ingredients }}
-                </p>
-                <img src="{{ recipe.image }}" width="400" height="200">
-
-            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+      <div class="card ">
+        <div class="card-image">
+          <img class="responsive-img" src="{{ recipe.image }}" alt="Recipe image" >
+         </div>
+         <hr>
+        <div class="card-content">
+          <span class="card-title"><h3 class="center-align light-blue-text text-darken-4">{{ recipe.title }}</span></h3>
+          <h4>Ingredients</h4>
+          <div>{{ recipe.ingredients }}</div>
+          <h4>Method</h4>
+          <div>{{ recipe.method }}</div>
+          <h4>Date Posted</h4>
+          <div>{{ recipe.date_posted }}
+          <br>{{ recipe.user_id }}</br>
         </div>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('get_recipes') }}"class="btn-small green">Recipe List</a>
+         
+        </div>
+      </div>
     </div>
+  </div>
+  
+  
+
+
 
 {% endblock %}

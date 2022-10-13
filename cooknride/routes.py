@@ -3,14 +3,11 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_uploads import UploadSet, configure_uploads, IMAGES, DATA, ALL
 from werkzeug.datastructures import FileStorage
-from werkzeug.utils import secure_filename
 from cooknride import app, db, mongo
 from cooknride.models import Cuisine, Users
 import os
 import cloudinary
 import cloudinary.uploader
-
-images = UploadSet('images', IMAGES)
 
 
 @app.route("/")
@@ -20,6 +17,11 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/recipe/<_id>", methods=["GET", "POST"])
+def recipe(_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})    
+    return render_template("recipe.html", 
+                           recipe=recipe)
 
 
 @app.route("/get_cuisines")
@@ -120,12 +122,11 @@ def edit_recipe(_id):
         }
         mongo.db.recipes.update_one({'_id': ObjectId(_id)}, {'$set': submit})
         flash("Recipe Successfully Updated")
-                                
+        return redirect(url_for("get_recipes"))                        
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     return render_template("edit_recipe.html", 
                            recipe=recipe, cuisines=cuisines)
     
-
 
 @app.route("/delete_recipe/<_id>")
 def delete_recipe(_id):
@@ -139,7 +140,6 @@ def delete_recipe(_id):
     mongo.db.recipes.delete_many({"_id": ObjectId(_id)})
     flash("Recipe deleted!")
     return redirect(url_for("get_recipes"))
-
 
 
 @app.route("/register", methods=["GET", "POST"])
