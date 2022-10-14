@@ -41,7 +41,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="image" name="image" minlength="3">
-                        {{ recipe.image }} 
+                        {{- recipe.image -}} 
                     </textarea>
                     <label for="image">image</label>
                 </div>
@@ -53,7 +53,7 @@
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="ingredients" name="ingredients" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required>
-                        {{ recipe.ingredients }} 
+                        {{- recipe.ingredients -}} 
                     </textarea>
                     <label for="ingredients">Ingredients</label>
                 </div>
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <textarea id="method" name="method" minlength="5"maxlength="200" pattern="^[^ ].+[^ ]$" class="materialize-textarea validate" required>
-                    {{ recipe.method }} 
+                    {{- recipe.method -}} 
                 </textarea>
                 <label for="method">Method</label>
                 </div>

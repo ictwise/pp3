@@ -6,7 +6,25 @@
 <div><H1>CooknRide</H1>  
   <h2 class=" flow-text ">To ride well you need to fuel well. Share your recipes here with other cyclists. Register and login if you want to add recipes, or just view the recipes the other club members have added. Food to make you ride your bike to the max!</h2>
 <h4 class=" grey-text flow-text">Click the recipe title to see the full list of ingredients and the method of cooking.</h4>
-</div>  
+
+<div class="row card-panel grey lighten-5">
+  <form action="{{ url_for('search') }}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+          <div class="input-field col s12 m8">
+              <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+              <input type="text" name="query" id="query" minlength="3" class="validate" required>
+              <label for="query">Search for Recipes</label>
+          </div>
+          <div class="col s12 m4">
+              <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
+              <button type="submit" class="light-green darken-1 btn text-shadow">
+                  <i class="fas fa-search left"></i> Search
+              </button>
+          </div>
+      </div>
+  </form>
+</div> 
+{% if recipes|length > 0 %}
 {% for recipe in recipes %}
    
     <div class="row">
@@ -31,6 +49,9 @@
    
       {% endfor %}             
 
-{% endblock %}
+  {% else %}
+      <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+  {% endif %}
+      {% endblock %}
 
 

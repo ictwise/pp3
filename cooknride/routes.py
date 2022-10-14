@@ -6,8 +6,7 @@ from werkzeug.datastructures import FileStorage
 from cooknride import app, db, mongo
 from cooknride.models import Cuisine, Users
 import os
-import cloudinary
-import cloudinary.uploader
+
 
 
 @app.route("/")
@@ -15,6 +14,13 @@ import cloudinary.uploader
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
+
 
 
 @app.route("/recipe/<_id>", methods=["GET", "POST"])
