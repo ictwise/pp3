@@ -19,8 +19,8 @@ def get_recipes():
 
 @app.route("/recipe/<_id>", methods=["GET", "POST"])
 def recipe(_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})    
-    return render_template("recipe.html", 
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
+    return render_template("recipe.html",
                            recipe=recipe)
 
 
@@ -55,7 +55,7 @@ def edit_cuisine(cuisine_id):
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage cuisines!")
         return redirect(url_for("get_cuisines"))
-    
+
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     if request.method == "POST":
         cuisine.cuisine_name = request.form.get("cuisine_name")
@@ -75,7 +75,7 @@ def delete_cuisine(cuisine_id):
     db.session.commit()
     mongo.db.recipes.delete_many({"cuisine_id": str(cuisine_id)})
     return redirect(url_for("get_cuisines"))
-    
+
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -84,7 +84,7 @@ def add_recipe():
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
-        recipe = {  
+        recipe = {
                   "cuisine_id": request.form.get("cuisine_id"),
                   "title": request.form.get("title"),
                   "ingredients": request.form.get("ingredients"),
@@ -103,15 +103,15 @@ def add_recipe():
 
 @app.route("/edit_recipe/<_id>", methods=["GET", "POST"])
 def edit_recipe(_id):
-    
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
-            
+
     if "user" not in session or session["user"] != recipe["user_id"]:
         flash("You can only edit your own recipes!")
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
-        submit = {  
+        submit = {
                   "cuisine_id": request.form.get("cuisine_id"),
                   "title": request.form.get("title"),
                   "ingredients": request.form.get("ingredients"),
@@ -122,20 +122,20 @@ def edit_recipe(_id):
         }
         mongo.db.recipes.update_one({'_id': ObjectId(_id)}, {'$set': submit})
         flash("Recipe Successfully Updated")
-        return redirect(url_for("get_recipes"))                        
+        return redirect(url_for("get_recipes"))
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
-    return render_template("edit_recipe.html", 
+    return render_template("edit_recipe.html",
                            recipe=recipe, cuisines=cuisines)
-    
+
 
 @app.route("/delete_recipe/<_id>")
 def delete_recipe(_id):
-   
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
 
     if "user" not in session or session["user"] != recipe["user_id"]:
         flash("You can only delete your own recipes!")
-        return redirect(url_for("recipes"))
+        return redirect(url_for("get_recipes"))
 
     mongo.db.recipes.delete_many({"_id": ObjectId(_id)})
     flash("Recipe deleted!")
@@ -146,20 +146,20 @@ def delete_recipe(_id):
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = Users.query.filter(Users.user_name == 
+        existing_user = Users.query.filter(Users.user_name ==
                                            request.form.get("username").lower()
                                            ).all()
-  
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-    
+
         user = Users(
             user_name=request.form.get("username").lower(),
             email=request.form.get("email").lower(),
             password=generate_password_hash(request.form.get("password"))
         )
-    
+
         db.session.add(user)
         db.session.commit()
 
@@ -175,7 +175,7 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = Users.query.filter(Users.user_name == 
+        existing_user = Users.query.filter(Users.user_name ==
                                            request.form.get("username").lower()
                                            ).all()
 
@@ -205,7 +205,7 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-      
+
     if "user" in session:
         return render_template("profile.html", username=session["user"])
 
@@ -218,5 +218,3 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
