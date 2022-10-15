@@ -16,10 +16,10 @@
               <label for="query">Search for Recipes</label>
           </div>
           <div class="col s12 m4">
-              <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
               <button type="submit" class="light-green darken-1 btn text-shadow">
                   <i class="fas fa-search left"></i> Search
               </button>
+              <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
           </div>
       </div>
   </form>
@@ -40,9 +40,9 @@
             <span class="card-title"><h3 class="center-align light-blue-text text-darken-4"><a href="{{ url_for('recipe',  _id=recipe._id) }}">{{ recipe.title }}</a></span></a>
           </div>
           <div class="card-action">
-            <a href="{{ url_for('delete_recipe',  _id=recipe._id) }}"class="btn-small green">Delete</a>
             <a href="{{ url_for('edit_recipe',  _id=recipe._id) }}"class="btn-small green">Edit</a>
             <a href="{{ url_for('recipe',  _id=recipe._id) }}"class="btn-small green">View</a>
+            <a href="{{ url_for('delete_recipe',  _id=recipe._id) }}"class="btn-small red">Delete</a>
           </div>
         </div>
       </div>
