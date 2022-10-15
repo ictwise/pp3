@@ -3,9 +3,9 @@
 
 <div class=" header-img responsive-img" >
 </div> 
-<div><H1>CooknRide</H1>  
+<div><H1 class=""green-text>CooknRide</H1>  
   <h2 class=" flow-text ">To ride well you need to fuel well. Share your recipes here with other cyclists. Register and login if you want to add recipes, or just view the recipes the other club members have added. Food to make you ride your bike to the max!</h2>
-<h4 class=" grey-text flow-text">Click the recipe title to see the full list of ingredients and the method of cooking.</h4>
+<h4 class=" grey-text flow-text">Search for a recipe by ingredient or name, or scroll down to see all recipes. <br>Click the recipe title to see the full list of ingredients and the method of cooking.</h4>
 
 <div class="row card-panel grey lighten-5">
   <form action="{{ url_for('search') }}" method="post" class="col s12">
@@ -24,15 +24,16 @@
       </div>
   </form>
 </div> 
+
 {% if recipes|length > 0 %}
+
 {% for recipe in recipes %}
-   
-    <div class="row">
-      <div class="col s12 m6 offset-m3 l4 offset-l4">
-        <div class="card center">
+<div class="row">     
+      <div class="col s12 m7 l4 center offset-l4">
+        <div class="card center-align">
           <div class="card-image">
             <a href="{{ url_for('recipe',  _id=recipe._id) }}">
-              <img class="responsive-img" src="{{ recipe.image }}" alt="Recipe image" >
+              <img  src="{{ recipe.image }}" alt="Recipe image" >
             </a>
           </div>
           <div class="card-content">
@@ -45,9 +46,9 @@
           </div>
         </div>
       </div>
-    </div>
+</div>
    
-      {% endfor %}             
+ {% endfor %}             
 
   {% else %}
       <h3 class="red-text text-darken-4 center-align">No Results Found</h3>

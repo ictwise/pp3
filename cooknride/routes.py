@@ -8,19 +8,18 @@ from cooknride.models import Cuisine, Users
 import os
 
 
-
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
-
 
 
 @app.route("/recipe/<_id>", methods=["GET", "POST"])
@@ -224,3 +223,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
