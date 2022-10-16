@@ -1,12 +1,12 @@
 # Testing 
 
-## Lazy Vegan Fast Food Recipes!
+## CooknRide - recipes to fuel your ride
 
 <br>
 
-[View live website here!](https://flask-milestone-3-project.herokuapp.com/home)
+[View live website here!](https://flask-recipe-project-sian.herokuapp.com/get_recipes)
 
-[View README.md here!](https://github.com/jennymalmoe/MSP3/blob/main/README.md)
+[View README.md here!](https://github.com/ictwise/pp3/blob/822cd2ee0cf43314c8418a4bfc19066ad8d21767/README.md)
 
 <br>
 
@@ -37,45 +37,14 @@
 
 <br>
 
-* As a first time visitor, I want to easily understand the main purpose of the site.
-    - When visitor enters website, the visitors is welcomed by a clean site with lots of space and a really clear header and a intro text that cleray states the purpose of the site. 
+    * As a first time visitor, I want to easily understand the main purpose of the site.
+    * As a first time visitor, I want the site navigation to be intutive, user friendly and over all ease-of-use.
+    * As a first time visitor, I want to find recipes that will improve my cycling performance.
+    * As a first time visitor, I want to easily access the recipes. 
+    * As a first time visitor, I want to be able to create, read, update, delete and search for recipes.
+    * As a first time visitor, I want to be able to take part of this community/recipe bank by be able to register. 
 
-<br>
 
-* As a first time visitor, I want the site navigation to be intutive, user friendly and over all ease-of-use.
-    - Sites has a fixed navbar that is present wherever page (even if visitor scrolls down) the visitor is looking at. The navbar is clearly displaying all pages/links for a new user to make navigation through the site easy and effortless. 
-
-<br>
-
-* As a first time visitor, I want to be inspired and taken by surprise regarding this new way of thinking about vegan food (easy fast food recipes).
-    - Already at the Home page the visitors can be inspired by the sites easy recipes by the into text and by the recipe cards of three popular recipes. 
-
-<br>
-
-* As a first time visitor, I want to easily access the recipes.
-    - Home page presents three popular recipes with links that redirect visitor directly to Recipe page. Visitor can also click on Recipe page in navbar and get redirected to Recipe page. 
-
-<br>
-
-* As a first time visitor, I want to be inspired by the site, the recipes and the design. Get a positive feel. 
-    - By the clean, fresh look in Home page the vistor can det inspired and curios about the site, since intro-tex and poopular recipes in Home page is presented.
-
-<br>
-
-* As a first time visitor, I want to be able to create, read, update, delete and search for recipes.
-    - There is a register button at first sight in Home page thar redirects visitor to Register page. Intro text in Home page states that to create/add a recipe, visitor need to register. Visitor can read recipes in Home page and click on Recipe in navbar for access all recipes. When visitor created a recipe, the visitor is allowed to edit and delete same recipe. 
-
-<br>
-
-* As a first time visitor, I want to be able to take part of this community/recipe bank by be able to register. 
-    - There is a register button right away in Home page thar redirects visitor to Register page. Visitor can also click on Register in navbar for accessing the Regitration Page.
-
-<br>
-
-* As a first time visitor, I want to locate some sort of contact information or social media links to be able to follow and get a feel for the credibility of the site. 
-    - There is contact email in Log In page, Log Out page and Register page. There is a Pinterest icon in footer througout all pages. 
-
-<br>
 
 ![Home Page view](/documentation_testing/img_testing/testing_home.png)
 
@@ -83,43 +52,18 @@
 
 <br>
 
-* As a returning visitor, I want to be able to easily register if I didn't last time visiting. 
-    -There is a register button right away in Home page thar redirects visitor to Register page. Visitor can also click on Register in navbar for accessing the Regitration Page.
+* Returning Visitor Goals
 
-<br>
-
-* As a returning visitor, I want to be able to easily log in, if I registered last time visiting. 
-    - Visitor can click on Log In link in navbar and get redirected to Log In page. 
-
-<br>
-
-* As a returning visitor, I want to be able to create, read, update, delete and search for recipes.
-    - There is a register button at first sight in Home page thar redirects visitor to Register page. Intro text in Home page states that to create/add a recipe, visitor need to register. Visitor can read recipes in Home page and click on Recipe in navbar for access all recipes. When visitor created a recipe, the visitor is allowed to edit and delete same recipe. 
-
-<br>
-
-* As a returning visitor, I want to be able to reach out to siteowner for any possible questions.
-    - There is contact email in Log In page, Log Out page and Register page.
+    * As a returning visitor, I want to be able to easily register if I didn't last time visiting. 
+    * As a returning visitor, I want to be able to easily log in, if I registered last time visiting. 
+    * As a returning visitor, I want to be able to create, read, update, delete and search for recipes.
+    * As a returning visitor, I want to be able to reach out to siteowner for any possible questions.
 
 <br>
 
 ![Log In page with contact information](/documentation_testing/img_testing/testing_login.png)
 
-### Frequent Visitor Goals
 
-<br>
-
-* As a frequent visitor, I want to get inspired by newly added recipes. 
-    - Recipe page is continuously updated with newly added recipes bu users and siteowner. 
-
-<br>
-
-* As a frequent visitor, I want it to be quick and easy to add new recipes.
-    - There is a register button at first sight in Home page thar redirects visitor to Register page. Intro text in Home page states that to create/add a recipe, visitor need to register. Visitor can read recipes in Home page and click on Recipe in navbar for access all recipes. When visitor created a recipe, the visitor is allowed to edit and delete same recipe. 
-
-<br>
-
-![Recipe page](/documentation_testing/img_testing/testing_recipes.png)
 
 # Testing
 
@@ -129,9 +73,7 @@
 
 <br>
 
-To make make it easier to validate html code, since using jinja templating language throughout all pages, which results in errors in online validators. I copied the code from "View page source" and pasted it in "The W3C Markup Validation". Still one error keept showing at every page (due to jinja templating language) when run in validator. The section showed in page source because of the div and h4 (I guess). This also happend (due to jinja templating) when validated profile page (see screenshots below). 
-
-As seen there where no other errors.
+I used https://validator.w3.org/ to test all pages, no errors found. One warning was found I checked base.html and was satisfied that the lack of heading styles wasn't a problem.
 
 <br>
 
