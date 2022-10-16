@@ -165,31 +165,14 @@ Find and share recipes. Get inspired by the recipes and get inspired to add/shar
 
 * Color scheme
 
-    The page consists of a white base with black, light green and orange as accent colors. Button at home page is orange to draw the visitors attention to it since it's the first thing they see when entering the site. Main purpose is to get a large base of Lazy Vegans that adds recipes so the ramount of recipes increases.
+The intention of this project is to be an add on for the website of a local cycling club. The club colours are Green with a red accent. White is used as the background with the occational grey to soften the effect.
     
-    When hover buttons, they turn to the light green color to tie different elements of the sites together. The chosen colour scheme was specifically selected in order to define the vibe of the page. 
-
-    Green is usually associated with healthy, organic and vegetarian food. The green and white color combination is clean, crisp, and are associated with nature and environmental awareness. The green color has a warm vibe while the supporting soft white lend a modern look. Since green is found commonly in nature, it makes it an excellent choice for recipes sites with healthy and plant based foods. Many Health food stores, Salad bars and Vegan restaurants chooses these kind of colors.
-    
-    Orange calls to mind feelings of enthusiasm and warmth. Orange has very high visibility, you can use it to draw attention and highlight the most important elements of your design. Orange is very effective for promoting especially food and kitchen products.
-    
-    ![Color scheme](static/images/color_scheme.png)
 
 * Typography
 
-    Roboto font is the main font used throughout the site with Major Mono Display used to headers. Roboto has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. It's subtle and it doesn´t take any attention away from the content. This makes Roboto a more natural reading rhythm more commonly found in humanist and serif types. 
+    Montserrat is the main font used throughout the site. Montserrat has a clean and modern vibe.
     
-    Major Mono Display is a monospaced geometric sans serif all-uppercase typeface with a playful attitude. This font is a great choice for playful web typography.. Major Mono Display is a clean but charming and unconventional font that also gives the site a relaxed vibe. The combination of these fonts represents both the healthy, vegan side aswell as the relaxed fast food approach. 
 
-    ![Fonts](static/images/fonts.png)
-
-* Imagery
-
-    Images and the choices of the images is an important component of this site. I chose contemporary, clean images that appeal most audiences. I have four appealing images at the home page to catch the visitors intrerest right away. I use lot of space around images and content to get the visitor an uncluttered and comfortable browsing experience on all device sizes.
-
-* Icons
-
-    All icons (except the one at the tab which is taken from FreeIcons) used are taken from Font Awsome. I have decided to choose icons for the search button, back to top icon, add buttons, log in button, log out button, cancel button, edit button, register button and social media link (Pinterest) in the footer.
 
 <br>
 
@@ -202,12 +185,6 @@ Find and share recipes. Get inspired by the recipes and get inspired to add/shar
 
 <br>
 
-**Post wireframes design changes:**
-While the project relied on these wireframes, there are some differences between the wireframes and the final product. 
-
-
-
-<br>
 
 # Features
 

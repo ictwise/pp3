@@ -36,7 +36,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <input type="url" textarea id="image" pattern="https?://.+" autocomplete="off" placeholder="A link to your recipe image - must begin http:// or https://" name="image" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="400" class="materialize-textarea validate" required></textarea>
                     <label for="image">image</label>
                 </div>
             </div>
@@ -45,8 +45,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="ingredients" name="ingredients" pattern="^[^ ].+[^ ]$" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <textarea id="ingredients" name="ingredients" pattern="^[^ ].+[^ ]$" minlength="3"
+                        maxlength="2000" class="materialize-textarea validate" required></textarea>
                     <label for="ingredients">Ingredients</label>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="method" name="method" minlength="5"
-                        maxlength="200" pattern="^[^ ].+[^ ]$" class="materialize-textarea validate" required></textarea>
+                        maxlength="2000" pattern="^[^ ].+[^ ]$" class="materialize-textarea validate" required></textarea>
                     <label for="method">Method</label>
                 </div>
             </div>
