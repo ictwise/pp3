@@ -340,7 +340,6 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 * [Chrome DevTools](https://developer.chrome.com/docs/devtools/)  - used Lighthouse to check sites performance and the dev tool to check responsiveness.
 * [Designwizard](https://www.designwizard.com/) - used for inspirations regarding color combinations.
 * [Font-Awesome](https://fontawesome.com/) - used for icons.
-* [FreeIcons](https://freeicons.io/) - used for icon in tab.
 * [Git](https://git-scm.com/) - used for version control to commit to Git and push to Heroku.
 * [GitHub](https://github.com/) - used to store the projects code after being pushed from Git.
 * [Gitpod](https://gitpod.io/) - IDE used for development.
@@ -350,8 +349,6 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 * [Unsplash](https://unsplash.com/) - Images used were obtained from Unsplash.
 * [PEP8](https://www.python.org/dev/peps/pep-0008/) - Used as style guide for Python code.
 * [PEP8online](http://pep8online.com/) - Used to check code for PEP8 requirements
-* [Pixelmator](https://www.pixelmator.com/mac/) - used to resize images.
-* [Postimages](https://postimages.org/) - used to create url for images. 
 * [RandomKeygen](https://randomkeygen.com/) - used to generate secure password to Secret Key. 
 * [TechSini](https://techsini.com/) - mockup generator used for preview of the  website.
 * [Visual Studio Code](https://code.visualstudio.com/) - IDE used for code editing.

@@ -18,7 +18,7 @@
         <div class="navbar-fixed">
             <nav class="nav-extended text-shadow green">
                 <div class="nav-wrapper">
-                    <a href="{{ url_for('get_recipes') }}" class="brand-logo center">CooknRide</a>
+                    <a href="{{ url_for('get_recipes') }}" class="brand-logo left">CooknRide</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -71,7 +71,7 @@
         {% endwith %}
     </section>
 
-    <main class="container"></main>
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
