@@ -1,41 +1,6 @@
 
-## notes
-
-### before submiting project
-
-in env.py set debug and development to false
 
 
-## steps
-
-create mongoDB for recipies user password y1Ujdn7pjP2SWiw7 secret key y1Ujdn7pjP2SWiw8
-
-create flask app - run hello world
-Heroko create requirments
-Prockfile connect to heroku
-connect Flask to Mongo, create psql for user and cuisine and connect, create recipe page and view first record.
-template directory, base and recipe there.
-materialise and static files check css is working
-Add nav bar
-user auth and register create
-add register functionality
-login functionality
-display user profile
-logout
-home page setup - cards setup
-add recipe page
-recipe input fields
-cuisine selection on new recipe
-'Allow user to submit recipe to db 
-Adding Edit And Done Buttons
-Wire up recipe edit button
-Bind data to the Edit recipe form'".
-'Update recipe into the database'.
-Delete recipe from the database
-Add Manage cuisine template'"
- 'Add option to Add cuisine to db".
- 'Add edit cuisine option
- Add delete cuisine option
 
 # CooknRide Recipes to Ride By!
 
@@ -47,7 +12,7 @@ Add Manage cuisine template'"
 
 <br>
 
-![site on different devices](static/images/mock_up.png) 
+![site on different devices](cooknride/static/images/multi_device_mockup.png) 
 
 Fueling for your ride is important if you want to get in the miles and the speed. Share your favourite recipes here. 
 
@@ -65,8 +30,6 @@ ___
     * Design Choices
         * Color scheme
         * Typography
-        * Imagery
-        * Icons
     * Wireframes
 
 2. [**Features**](#features)
@@ -90,10 +53,7 @@ ___
     * Making a Local Clone
 
 7. [**Credits**](#credits)
-    * Code 
-    * Content
-    * Media
-    * Acknowledgements
+
 
 <br>
 
@@ -121,7 +81,7 @@ Create a web application that allows users to:
 * Edit their recipes (UPDATE)
 * Delete their recipes (DELETE)
     
-**The purpose is to get members of a cycling club to engage with each other, share 'fuelling' tips and to build a sense of teamspirit amongst club members**
+**The purpose is to get members of a cycling club to engage with each other, share 'fuelling' tips and to build a sense of community amongst club members**
 
 The site targets a specific group of people members of a cycling club and anyone interested in cycling performance. The emphasis is on healthy eating, but also fuelling performance.
 
@@ -165,7 +125,7 @@ Find and share recipes. Get inspired by the recipes and get inspired to add/shar
 
 * Color scheme
 
-The intention of this project is to be an add on for the website of a local cycling club. The club colours are Green with a red accent. White is used as the background with the occational grey to soften the effect.
+The intention of this project is to be an add-on for the website of a local cycling club. The club colours are Green with a red and blue accent. White is used as the background with the occasional grey to soften the effect.
     
 
 * Typography
@@ -178,10 +138,7 @@ The intention of this project is to be an add on for the website of a local cycl
 
 ## Wireframes 
 
-
-* [Mobile](https://github.com/jennymalmoe/MSP3/blob/main/wireframes/mobile/wireframes_mobile.pdf) 
-* [Tablet](https://github.com/jennymalmoe/MSP3/blob/main/wireframes/tablet/wireframes_tablet.pdf)
-* [Desktop](https://github.com/jennymalmoe/MSP3/blob/main/wireframes/desktop/wireframes_desktop.pdf)
+![initial design](cooknride/static/images/wireframe.jpg) 
 
 <br>
 
@@ -257,7 +214,7 @@ Every page of the website features a consistently responsive and intuitive layou
 <br>
 
 ## Features left to implement
-* custom 404 and 500 error pages
+* custom 500 error pages
 * Be able to search through cuisines, kind of food (High Protien, Low Fat etc).
 * Ability to reset an account password.
 * User profile picture functionality, allowing users to add profile pictures.
@@ -265,6 +222,7 @@ Every page of the website features a consistently responsive and intuitive layou
 * Easier to get contacted by business partners regarding any collaboration, business deals and sponsorship.
 * Get more contact information about the registered users to be able to reach out (newsletters, offers etc).
 * Upload of images and storage in cloudinary.
+* Pagination
 
 
  
@@ -280,9 +238,39 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 <br>
 
 ## Database schema
-![Database](static/images/db_scheme.png)
+![Database](cooknride/static/images/databaseschema.png)
 
 <br>
+
+## My Project Plan
+
+* create mongoDB for recipies (password stored in notes- available on request)
+* create flask app - run hello world
+* Heroko create requirments
+* Prockfile connect to heroku
+* connect Flask to Mongo, create psql for user and cuisine and connect, create recipe page and view first record.
+* template directory, base and recipe there.
+* materialise and static files check css is working
+* Add nav bar
+* user auth and register create
+* add register functionality
+* login functionality
+* display user profile
+* logout
+* home page setup - cards setup
+* add recipe page
+* recipe input fields
+* cuisine selection on new recipe
+* Allow user to submit recipe to db 
+* Adding Edit And Done Buttons
+* Wire up recipe edit button
+* Bind data to the Edit recipe form'".
+* Update recipe into the database'.
+* Delete recipe from the database
+* Add Manage cuisine template'"
+* Add option to Add cuisine to db".
+* Add edit cuisine option
+* Add delete cuisine option
 
 # Technologies Used
 
@@ -304,7 +292,7 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 * [PyMongo](https://pypi.org/project/pymongo/) - flask_pymongo was used for interacting with MongoDB database from Python.
 * [Python](https://www.python.org/) - used to write the logic that operates the site.
 * [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) - used for password hashing and authentication.
-* [PostgreSQL](https://www.postgresql.org/)
+* [PostgreSQL](https://www.postgresql.org/) - used for user and cuisine data
     
 <br>
 
@@ -313,9 +301,8 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 <br>
 
 * [Am I Responsive](http://ami.responsivedesign.is/) - used to validate the responsiveness. 
-* [Balsamiq](https://balsamiq.com/) - used to create the wireframes.
+* [PowerPoint] - used to create the wireframes.
 * [Chrome DevTools](https://developer.chrome.com/docs/devtools/)  - used Lighthouse to check sites performance and the dev tool to check responsiveness.
-* [Designwizard](https://www.designwizard.com/) - used for inspirations regarding color combinations.
 * [Font-Awesome](https://fontawesome.com/) - used for icons.
 * [Git](https://git-scm.com/) - used for version control to commit to Git and push to Heroku.
 * [GitHub](https://github.com/) - used to store the projects code after being pushed from Git.
@@ -323,14 +310,11 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 * [Heroku](https://www.heroku.com/home) - cloud platform used to deploy application.
 * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - Jinja templating language was used to simplify and display backend data in html.
 * [JSHint](https://jshint.com/) - used to test JS code to ensure there were no errors.
-* [Unsplash](https://unsplash.com/) - Images used were obtained from Unsplash.
-* [PEP8](https://www.python.org/dev/peps/pep-0008/) - Used as style guide for Python code.
-* [PEP8online](http://pep8online.com/) - Used to check code for PEP8 requirements
-* [RandomKeygen](https://randomkeygen.com/) - used to generate secure password to Secret Key. 
+* [psycodestyle] - Used to check code for PEP8 requirements
 * [TechSini](https://techsini.com/) - mockup generator used for preview of the  website.
-* [Visual Studio Code](https://code.visualstudio.com/) - IDE used for code editing.
+* [gitpod](https://www.gitpod.io/) - IDE used for code editing.
 * [W3C Validator](https://validator.w3.org/) - used to test HTML code to ensure there were no errors.
-* [W3C Validator CSS](https://validator.w3.org/) - used to test CSS code to ensure there were no errors.
+* [W3C Validator CSS](https://jigsaw.w3.org/css-validator/) - used to test CSS code to ensure there were no errors.
 
 <br>
 
@@ -345,7 +329,7 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 <br>
 
 # Testing
-See separate [testing.md file](documentation_testing/testing.md)
+See separate [testing.md file](testing/testing.md)
 
 <br>
 
@@ -359,24 +343,10 @@ Requirements to deploy:
 * Python3 (In order to to run the application and use Flask)
 * PIP3 (To install all application imports, such as Flask and OS)
 * A template folder (To link app routes)
-* A databases (MongoDB Atlas, )
+* Databases (MongoDB Atlas, PostgreSQL)
 
 <br>
 
-## MongoDB Configuration
-1. Login to your [MongoDB](https://www.mongodb.com/) Account.
-2. From Clusters tab, click on Connect.
-3. Select Connect to your application.
-4. Select Python as Driver and choose Version 3.6 or later
-5. Create a new env python file in your project, paste and save the connection link and variables.
-
-![mongo](static/images/mongo_db.png)
-
-6. Create an instance of PyMongo
-
-![py_mongo](static/images/py_mongo.png)
-
-<br>
 
 ## GitHub Pages
 1. Log into [GitHub](https://github.com/)
@@ -419,11 +389,10 @@ Making a copy of the original repository on our GitHub account to view or to mak
 ## Heroku Deployment
 1. Before deploying your project create a requirements.txt file by running the following command in the CLI;
 
-    ![pip freeze](static/images/pip_freeze.png)
+
 
 2. Create a Procfile file by running the following command in the CLI;
 
-    ![procfile](static/images/echo.png)
 
 3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
 3. Log in to [Heroku](https://dashboard.heroku.com/apps).
@@ -440,9 +409,11 @@ Making a copy of the original repository on our GitHub account to view or to mak
 <br>
 
 # Credits
-* My mentor Oluwaseun Owonikoko for helpfull feedback througout the project.
-* Code Institute tutor support.
-* Fellow students on Slack for a helping hand when I've got stuck.
-* Google!
+* My mentor Chris Quinn.
+* Code Institute tutor support, were truly excellent.
+* Slack very informative, seems like people have been through the same issues.
+* Google and Stack Overflow.
+* The Code Institute Combined Task Manager Walkthrough (from which I edited much of the code used, especially for the register/login sections).
+* YouTube https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH  & https://www.youtube.com/watch?v=mqhxxeeTbu0&list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX
 
 Site for educational purposes only.

@@ -139,7 +139,9 @@ def delete_recipe(_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
 
     if "user" not in session or session["user"] != recipe["user_id"]:
-        flash("You can only delete your own recipes!")
+        flash(
+            "You can only delete your own recipes,\
+            if this is your recipe log in!")
         return redirect(url_for("get_recipes"))
 
     mongo.db.recipes.delete_many({"_id": ObjectId(_id)})
@@ -223,6 +225,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 @app.errorhandler(404)
 def page_not_found(error):

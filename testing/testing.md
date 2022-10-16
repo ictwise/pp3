@@ -15,14 +15,14 @@
 1. [**Testing User Stories from UX Design Section**](#testing-user-stories-from-ux-design-section)
     - **First Time Visitor Goals**
     - **Returning Visitor Goals**
-    - **Frequent User Goals**
+  
 
 2. [**Testing**](#testing)
   * Automated Testing
       - **W3C Markup Validator Results**
       - **W3C CSS Validator Results**
       - **JSHint Results**
-      - **PEP8 Online Validator Results**
+
   * Manual Testing
 
 3. [**Bugs Discovered**](#bugs-discovered)
@@ -46,7 +46,7 @@
 
 
 
-![Home Page view](/documentation_testing/img_testing/testing_home.png)
+![Home Page view](img_testing/home.png)
 
 ### Returning Visitor Goals
 
@@ -61,7 +61,7 @@
 
 <br>
 
-![Log In page with contact information](/documentation_testing/img_testing/testing_login.png)
+![Log In page with contact information](loginScreen.png)
 
 
 
@@ -73,17 +73,8 @@
 
 <br>
 
-I used https://validator.w3.org/ to test all pages, no errors found. One warning was found I checked base.html and was satisfied that the lack of heading styles wasn't a problem.
+I used https://validator.w3.org/ to test all pages, no errors found. One warning was found I checked base.html and was satisfied that the lack of heading styles wasn't an issue.
 
-<br>
-
-Returning error:
-![Returning "Error"](html_validator/error_in_validator.png)
-
-Profile Page errors due to jinja template language as well:
-<br>
-![Returning "Error"](html_validator/error_profilepage_1.png)
-![Returning "Error"](html_validator/error_profilepage_2.png)
 
 <br>
 
@@ -91,49 +82,35 @@ Profile Page errors due to jinja template language as well:
 
 - __Home__
 <p align="center">
-  <img src="html_validator/html_home.png" >
+  <img src="img_testing/w3ValAddRecipe.png" >
 </p>
 
 
 - __Recipe__
 <p align="center">
-  <img src="html_validator/html_recipe.png" >
-</p>
-
-- __Shop__
-<p align="center">
-  <img src="html_validator/html_shop.png" >
-</p>
-
-- __Log In__
-<p align="center">
-  <img src="html_validator/html_login.png" >
-</p>
-
-- __Register__
-<p align="center">
-  <img src="html_validator/html_register.png" >
-</p>
-
-- __Add Recipes__
-<p align="center">
-  <img src="html_validator/html_addrecipe.png" >
+  <img src="img_testing/w3ValAddRecipe.png" >
 </p>
 
 - __Profile__
 <p align="center">
-  <img src="html_validator/html_profile.png" >
+  <img src="img_testing/w3Valprofile.png" >
 </p>
 
-- __Edit Recipe__
+- __Log In__
 <p align="center">
-  <img src="html_validator/html_editrecipe.png" >
+  <img src="img_testing/w3ValLogin.png" >
 </p>
 
-- __View Recipe__
+- __Register__
 <p align="center">
-  <img src="html_validator/html_viewrecipe.png" >
+  <img src="img_testing/w3ValAddRegister.png" >
 </p>
+
+- __Add Recipes__
+<p align="center">
+  <img src="img_testing/w3ValAddRecipe.png" >
+</p>
+
 
 </details>
 
@@ -141,7 +118,8 @@ Profile Page errors due to jinja template language as well:
 
 - __CSS Validator Results__
 <p align="center">
-  <img src="css_validator/css.png" >
+  <img src="img_testing/w3cssError.png" >
+  One error shows but this is form the materialize CDN and not part of my code.
 </p>
 </details>
 
@@ -149,15 +127,15 @@ Profile Page errors due to jinja template language as well:
 
 - __JSHint Results__
 <p align="center">
-  <img src="jshint/jshint_result.png" >
+  <img src="img_testing/jshint.png" >
 </p>
 </details>
 
-<details><summary><b>Click here for PEP8 Online results</b></summary>
+<details><summary><b>Click here for pycodestyle</b></summary>
 
-- __PEP8 Online Results__
+- __pycodestyle__
 <p align="center">
-  <img src="pep8_validator/pep8.png" >
+  <img src="img_testing/pycode.png" >
 </p>
 </details>
 
@@ -171,17 +149,13 @@ Profile Page errors due to jinja template language as well:
 
 #### Responsive Design - PASS
 
- - All pages were tested locally, and on Heroku using Chrome, Firefox, IE, and Safari. 
+ - All pages were tested using Chrome and Firefox, Edge. 
  - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
    - Desktop 
-   - iPhone 5/6/7/8/X 
-   - iPad 1/2/3/Pro 
    - Galaxy Android phones
 - All the pages were also tested manually using;
-  - iPhone 5s/6s/8/X/XS/11/
-  - Samsung Galaxy S8/Note 10+
-  - iPad Air 2 
-  - iPad Pro 3
+   - Samsung Galaxy S20
+
   
 <br>
 
@@ -194,22 +168,26 @@ Profile Page errors due to jinja template language as well:
 - All links are working and redirect the user to where they want to go next.
 - Hamburger bar at smaller devices works.
 - Logo works as link to home page.
+
   
-#### Home Page - PASS
+#### Home/Recipe Page - PASS
   
 - Registration button works.
-- All buttons on "popular recipes" works.
-
-#### Recipe Page - PASS 
-  
-- Search bar is working, and lets user search through recipe name. If user input match any recipe, the recipe in question shows.
+- search works - both recipe title and name, the search is or, the reset button clears the search and returns all recipes.
 - Search button works and starts a search function. 
-- Reset button works.
 - All recipe cards buttons "View Recipe" works and get the visitor to the recipe visitor wanted to view. 
+- Delete and edit buttons will not work unless the user is logged in and the creator of the recipe
+- All recipes are displayed in cards.
+- All recipe cards buttons "View Recipe" work.
 
-#### Shop Page - PASS
-  
-  - All product cards buttons "Buy Now" works and redirects visitor to the product in question page in a new tab outside Lazy Vegan website. 
+#####  Home/Recipe Page- logged in user - PASS
+- Nav bar New recipe link appears and is working
+- if user Admin Manage Cuisines link appears and is working.
+- Edit button on recipe card works and allows user to easily edit their recipe. 
+- Edit button redirects to edit page where all prior added conten is pre-filled.
+- All editing works and generates a success message. 
+- Delete button works as expected and deletes the recipe and generates a success message.
+- Back to Recipes button works. 
 
 #### Login - PASS
   
@@ -217,27 +195,15 @@ Profile Page errors due to jinja template language as well:
 - Form validations work as expected and gives feedback regarding unmatched format, incorrect username, incorrect password, or if user doesn't exist in the database.
 - Log In button works as expected and submits data successfully, and redirects user to Profile page.
 - Register account link works.
-- Contact email address-link works.
+- You cannot see the profile page unless logged in, typing into the address bar redirects to the login page.
 
-#### Profile - PASS
-  
-- All recipes added by current user are displayed in cards as it should.
-- All recipe cards buttons "View Recipe" (users own added recipes) works and get the visitor to the recipe visitor wanted to view.
-- If current user hasn't added any recipes, "Add a Recipe" button shows along with encouraging text.
-- "Add a Recipe" button shown when user hasn't added any recipes works.
-- Edit button on recipe card works and allows user to easily edit their recipe. 
-- Edit button redirects to edit page where all prior added conten is pre-filled as it should.
-- All editing works fine and generates a success message. 
-- Cancel button works as expected.
-- Delete button works as expected and deletes the recipe and generates a success message.
-- Back to Recipe button works. 
 
 #### Add Recipe - PASS
   
 - All form inputs works, and stores the data in the database.
 - Choose category dropdown works.
 - Min and max length for text input works.
-- Image preview works and show image before uploadadding the recipe. Preview image function on the form is responsive and all images fits all devices sizes.
+- Image preview works and show image before uploadadding the recipe. Preview image function on the form is responsive and all     images fits all devices sizes.
 - Gluten Free switch works (on/off).
 - Add Recipe button works and submits data and generate a successfull message.
 - The added recipe ends up in Recipe Page as it should.  
@@ -254,20 +220,20 @@ Profile Page errors due to jinja template language as well:
   
 - Logout functionality works = logs out user, and removes session cookies.
     
-#### Footer - PASS
-  
-- Footer is present on all pages. 
-- Social link (Pinterest) in footer works as expected, and open Pinterest in new tab. 
-- Email address links to mail function. 
-- Back to top button works througout all pages.
-  
+#### Manage Cuisines - PASS
+
+- The manage cuisines link only appears for the Admin user
+- Add Cuisine, edit and Delete links all work
+- Any cuisines deleted will cascade through the recipe collection and delete all associated recipes.
+- All added cuisines appear in the drop down on the add recipe page
   
 ### Security Testing
   
-- Tested against users seeing Edit and Delete buttons at other users added Recipes. **PASS**
+- Tested against Edit and Delete buttons working for other users added Recipes. **PASS**
 - Tested Add Recipe page, not to choose category or fill the inputs fields with less text than min length. As well as for the max lenght or skip one or more input fields. **PASS**
 - Tested register with a taken username. **PASS**
 - Tested register with unallowed character and to few characters. **PASS**
+- Tested typing links directly into address bar. **PASS**
   
 ### Google Lighthouse Testing 
   
