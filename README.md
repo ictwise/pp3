@@ -415,5 +415,6 @@ Making a copy of the original repository on our GitHub account to view or to mak
 * Google and Stack Overflow.
 * The Code Institute Combined Task Manager Walkthrough (from which I edited much of the code used, especially for the register/login sections).
 * YouTube https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH  & https://www.youtube.com/watch?v=mqhxxeeTbu0&list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX
+* BBC food for the recipes.
 
 Site for educational purposes only.
