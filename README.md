@@ -83,7 +83,7 @@ Create a web application that allows users to:
     
 **The purpose is to get members of a cycling club to engage with each other, share 'fuelling' tips and to build a sense of community amongst club members**
 
-The site targets a specific group of people members of a cycling club and anyone interested in cycling performance. The emphasis is on healthy eating, but also fuelling performance.
+The site targets a specific group of people members of a cycling club and anyone interested in cycling performance. The emphasis is on healthy eating, but also fuelling performance. The design is mobile first.
 
 
 Eventually the recipe database will increase in both recipes and users/visitors. The site offer users to interact by adding their own recipes that makes the user feel like being a part of "the community". 

@@ -61,7 +61,7 @@
 
 <br>
 
-![Log In page with contact information](loginScreen.png)
+![Log In page with contact information](login_screen.png)
 
 
 
@@ -82,33 +82,33 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
 
 - __Home__
 <p align="center">
-  <img src="img_testing/w3ValAddRecipe.png" >
+  <img src="img_testing/w3_val_home.png" >
 </p>
 
 
 - __Recipe__
 <p align="center">
-  <img src="img_testing/w3ValAddRecipe.png" >
+  <img src="img_testing/w3_val_add_recipe.png.png" >
 </p>
 
 - __Profile__
 <p align="center">
-  <img src="img_testing/w3Valprofile.png" >
+  <img src="img_testing/w3_val_profile.png" >
 </p>
 
 - __Log In__
 <p align="center">
-  <img src="img_testing/w3ValLogin.png" >
+  <img src="img_testing/w3_val_login.png" >
 </p>
 
 - __Register__
 <p align="center">
-  <img src="img_testing/w3ValAddRegister.png" >
+  <img src="img_testing/w3_val_add_register.png" >
 </p>
 
 - __Add Recipes__
 <p align="center">
-  <img src="img_testing/w3ValAddRecipe.png" >
+  <img src="img_testing/w3_val_add_recipe.png" >
 </p>
 
 
@@ -118,7 +118,7 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
 
 - __CSS Validator Results__
 <p align="center">
-  <img src="img_testing/w3cssError.png" >
+  <img src="img_testing/w3css_error.png" >
   One error shows but this is form the materialize CDN and not part of my code.
 </p>
 </details>
@@ -241,45 +241,11 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
   
   <details><summary><b>Click here for Lighthouse results</b></summary>
   
-  - __Homepage__
+ __Home__
 <p align="center">
-  <img src="lighthouse/lighthouse_home_page.png" >
+  <img src="img_testing/lighthouse.png" >
 </p>
 
-  - __Recipes__
-<p align="center">
-  <img src="lighthouse/lighthouse_recipe_page.png" >
-</p>
-  
-  - __Shop__
-<p align="center">
-  <img src="lighthouse/lighthouse_shop_page.png" >
-</p>
-
-  - __Log In__
-<p align="center">
-  <img src="lighthouse/lighthouse_login_page.png" >
-</p>
-
-  - __Register__
-<p align="center">
-  <img src="lighthouse/lighthouse_register_page.png" >
-</p>
-
-  - __Profile__
-<p align="center">
-  <img src="lighthouse/lighthouse_profile_page.png" >
-</p>
-
-  - __Add Recipe__
-<p align="center">
-  <img src="lighthouse/lighthouse_addrecipe_page.png" >
-</p>
-
-  - __Edit Recipe__
-<p align="center">
-  <img src="lighthouse/lighthouse_editrecipe_page.png" >
-</p>
 </details>
 
 <br>
