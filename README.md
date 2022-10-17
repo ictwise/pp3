@@ -387,13 +387,8 @@ Making a copy of the original repository on our GitHub account to view or to mak
 <br>
 
 ## Heroku Deployment
-1. Before deploying your project create a requirements.txt file by running the following command in the CLI;
-
-
-
-2. Create a Procfile file by running the following command in the CLI;
-
-
+1. Before deploying your project create a requirements.txt file.
+2. Create a Procfile file.
 3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
 3. Log in to [Heroku](https://dashboard.heroku.com/apps).
 4. Select "New" on your dashboard and then select "Create new app".
@@ -405,7 +400,7 @@ Making a copy of the original repository on our GitHub account to view or to mak
 10. Navigate to "Deploy" tab, and from Manual deploy choose your master branch, and click "Deploy Branch".
 11. After you deployed your branch "Enable Automatic Deploys".
 12. Site is successfully deployed, any further changes will automatically be updated everytime they are commited and pushed on Github.
-
+13. Database passwords and details available on request.
 <br>
 
 # Credits
