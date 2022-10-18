@@ -221,7 +221,7 @@ Every page of the website features a consistently responsive and intuitive layou
 * Allowing/Enabling users to comment/star the recipes.
 * Easier to get contacted by business partners regarding any collaboration, business deals and sponsorship.
 * Get more contact information about the registered users to be able to reach out (newsletters, offers etc).
-* Upload of images and storage in cloudinary.
+* Upload of images and storage in cloudinary. This is a priority as users indicated difficulty adding image addresses, especially from a mobile device.
 * Pagination
 
 
