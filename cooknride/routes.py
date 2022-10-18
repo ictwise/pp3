@@ -112,7 +112,7 @@ def edit_recipe(_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
 
     if "user" not in session or session["user"] != recipe["user_id"]:
-        flash("You can only edit your own recipes!")
+        flash("You can only edit your own recipes, if this is your recipe log in!")
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
