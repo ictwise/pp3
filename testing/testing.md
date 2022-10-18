@@ -88,7 +88,7 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
 
 - __Recipe__
 <p align="center">
-  <img src="img_testing/w3_val_add_recipe.png.png" >
+  <img src="img_testing/w3_val_add_recipe.png" >
 </p>
 
 - __Profile__
