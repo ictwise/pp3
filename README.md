@@ -324,7 +324,7 @@ MongoDB Atlas is used as database backend for storing recipes details, PostgreSQ
 
 * [MongoDB](https://www.mongodb.com/3) - used for database functionality.
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - used to host the database.
-* [PostgreSQL](https://www.postgresql.org/)
+* [ElephantSQL](https://www.postgresql.org/)
 
 <br>
 
