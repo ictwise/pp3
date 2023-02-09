@@ -12,6 +12,24 @@ body {
     background-size: cover;
     background-position: center;
 }
+.card {
+    height: 450px; /* or any other value that you think is appropriate */
+    overflow: hidden;
+  }
+
+.card-image {
+    height: 200px;
+    overflow: hidden;
+}
+.card-action {
+    display: flex;
+    justify-content: flex-end;
+ }
+.card-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .flashes h4 {
     line-height: 2;

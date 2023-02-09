@@ -11,8 +11,10 @@ import os
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    current_user = session["user"]
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    return render_template(
+        "recipes.html", recipes=recipes, current_user=current_user)
 
 
 @app.route("/search", methods=["GET", "POST"])
