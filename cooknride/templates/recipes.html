@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class=" header-img responsive-img" >
-</div> 
-<div><H1 class="green-text">CooknRide</H1> </div> 
-  <h2 class=" flow-text ">To ride well you need to fuel well. Share your recipes here with other cyclists. Register and login if you want to add recipes, or just view the recipes the other club members have added. Food to make you ride your bike to the max!</h2>
-<h4 class=" grey-text flow-text">Search for a recipe by ingredient or name, or scroll down to see all recipes. <br>Click the recipe title to see the full list of ingredients and the method of cooking.</h4>
+<div class="header-img responsive-img" style="position: relative;">
+  <div class="white-text center-align font-weight-bold" style="position: absolute; top: 60%; left: 70%; transform: translate(-50%, -50%); font-size: 4rem; text-shadow: 2px 2px rgba(0, 0, 0, 0.3)">
+    <h1>CooknRide</h1>
+  </div>
+</div>
 
-<div class="row card-panel grey lighten-5">
-  <form action="{{ url_for('search') }}" method="post" class="col s12">
-      <div class="row valign-wrapper center-align">
-          <div class="input-field col s12 m8">
-              <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-              <input type="text" name="query" id="query" minlength="3" class="validate" required>
-              <label for="query">Search</label>
-          </div>
-          <div class="col s12 m4">
-              <button type="submit" class="light-green darken-1 btn text-shadow">
-                  <i class="fas fa-search left"></i> Search
-              </button>
-              <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
-          </div>
-      </div>
+<div >
+  <p class="flow-text font-weight-bold text-secondary center-align">To ride well you need to fuel well. Share your recipes here with other cyclists. Register and login if you want to add recipes, or just view the recipes the other club members have added. Food to make you ride your bike to the max!</p>
+  <p class="flow-text center-align">Search for a recipe by ingredient or name, or scroll down to see all recipes. <br>Click the recipe title to see the full list of ingredients and the method of cooking.</p>
+</div>
+
+<div class="container my-5">
+  <form action="{{ url_for('search') }}" method="post">
+    <div class="input-field d-flex align-items-center" style="background-color: rgba(255, 255, 255, 0.3); border: 2px solid green; border-radius: 10px;">
+      <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+      <input type="text" name="query" id="query" minlength="3" class="validate" required style="font-size: 1.2rem; padding: 10px; flex-grow: 1;">
+      <label for="query">Search</label>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="light-green btn text-shadow mr-3">
+        Search
+        <i class="fas fa-search ml-2"></i>
+      </button>
+      <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
+    </div>
   </form>
-</div> 
+</div>
+
+
 
 {% if recipes|length > 0 %}
   <div class="row">     
