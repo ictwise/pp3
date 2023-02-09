@@ -3,25 +3,25 @@
 
     <h3 class="light-blue-text text-darken-4 center-align">Edit recipe</h3>
 
-    <div class="row card grey lighten-5">
+    <div class="row  grey lighten-5">
         <form class="col s12 m6 offset-m3 l4 offset-l4 " method="POST" action="{{ url_for('edit_recipe', _id=recipe._id)  }}">
             <!-- cuisine selection -->
-			<div class="row">
-				<div class="input-field col s12 flow-text">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4 flow-text"></i>
+            <div class="row">
+                <div class="input-field col s12 flow-text">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4 flow-text"></i>
                     <select id="cuisine_id" name="cuisine_id" class="validate" required>
-                    <option value="" disabled >Choose Cuisine</option>
-                {% for cuisine in cuisines %}
-                    {% if cuisine.id == recipe.cuisine_id | int %}
-                        <option value="{{ cuisine.id }}" selected>{{ cuisine.cuisine_name }}</option>
-                    {% else %}
-                        <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
-                    {% endif %}
-                {% endfor %}
-                </select>
+                        <option value="" disabled>Choose Cuisine</option>
+                        {% for cuisine in cuisines %}
+                            {% if cuisine.id == recipe.cuisine_id | int %}
+                                <option value="{{ cuisine.id }}" selected>{{ cuisine.cuisine_name }}</option>
+                            {% else %}
+                                <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
                     <label for="cuisine_id">Cuisine</label>
                 </div>
-			</div>
+            </div>
             
             <!-- recipe name -->
             <div class="row">
@@ -90,15 +90,16 @@
             
 
 
-    <div class="row">
-        <div class="col s12 center-align">
-            <!-- cancel button -->
-            <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
-                Cancel <i class="fas fa-times-circle right"></i>
-            </a>
-            <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                Save <i class="fas fa-plus-square right"></i>
-            </button>
-        </div>
-    </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <!-- cancel button -->
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Save <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
 {% endblock %}

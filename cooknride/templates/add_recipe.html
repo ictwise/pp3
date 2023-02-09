@@ -64,26 +64,25 @@
 
             <!--  date  -->
             <div class="row">
-                <div class="input-field col s12" value="Get Date (DD/MM/YYYY)>
-                    <i> class="fas fa-calendar-alt prefix light-blue-text text-darken-4"</i>
-                    
-                    <label for="date_posted">Date Created</label>
+                <input type="text" id="date_posted" name="date_posted" value="{{ date_posted }}" style="display: none;">
+                                        
+                    <label for="date_posted" style="display: none;">Date Created</label>
 
                     
-                </div>
-
-
             </div>
+
+
+        </div>
             
       
                         
         
-            <h4><input id="datePicker" type="date" name="date_posted" />   </h4>                                 
+                                          
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large green text-shadow">
-                        Add Recipe <i class="fas fa-plus-square right"></i>
+                        Add Recipe 
                     </button>
                 </div>
             </div>

@@ -6,15 +6,22 @@ from werkzeug.datastructures import FileStorage
 from cooknride import app, db, mongo
 from cooknride.models import Cuisine, Users
 import os
+from datetime import datetime
 
 
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    current_user = session["user"]
-    recipes = list(mongo.db.recipes.find())
-    return render_template(
-        "recipes.html", recipes=recipes, current_user=current_user)
+    if "user" in session:
+        user_id = session["user"]
+        current_user = session["user"]
+        recipes = list(mongo.db.recipes.find())
+        return render_template(
+            "recipes.html", recipes=recipes, current_user=current_user)
+
+    else:
+        recipes = list(mongo.db.recipes.find())
+        return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -105,7 +112,9 @@ def add_recipe():
         return redirect(url_for("get_recipes"))
 
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
-    return render_template("add_recipe.html", cuisines=cuisines)
+    return render_template(
+        "add_recipe.html", date_posted=datetime.now().strftime('%Y-%m-%d'),
+        cuisines=cuisines)
 
 
 @app.route("/edit_recipe/<_id>", methods=["GET", "POST"])
@@ -113,8 +122,10 @@ def edit_recipe(_id):
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
 
-    if "user" not in session or (session["user"] != recipe["user_id"] and session["user"] != "admin"):
-        flash("You can only edit your own recipes or if you are an admin, log in!")
+    if "user" not in session or (
+            session["user"] != recipe["user_id"] and
+            session["user"] != "admin"):
+        flash("You can only edit your own recipes or admins, log in!")
         return redirect(url_for("get_recipes"))
 
     if request.method == "POST":
@@ -139,8 +150,12 @@ def edit_recipe(_id):
 def delete_recipe(_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(_id)})
 
-    if "user" not in session or (session["user"] != recipe["user_id"] and session["user"] != "admin"):
-        flash("You can only delete your own recipes or if you are an admin, log in!")
+    if "user" not in session or (
+            session["user"] != recipe["user_id"]
+            and session["user"] != "admin"):
+        flash(
+         "You can only delete your own recipes or if you are an admin, log in!"
+        )
         return redirect(url_for("get_recipes"))
 
     mongo.db.recipes.delete_many({"_id": ObjectId(_id)})
