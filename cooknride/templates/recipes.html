@@ -44,7 +44,8 @@
           </div>
           <div class="card-action justify-content-center" style="position: absolute; bottom: 0;">
               <a href="{{ url_for('recipe',  _id=recipe._id) }}" class="btn-small green">View</a>
-              {% if recipe.created_by == current_user.id %}
+
+              {% if session.user|lower == "admin"|lower %}
                   <a href="{{ url_for('edit_recipe',  _id=recipe._id) }}" class="btn-small green">Edit</a>
                   <a href="{{ url_for('delete_recipe',  _id=recipe._id) }}" class="btn-small red">Delete</a>
               {% endif %}
