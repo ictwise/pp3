@@ -6,7 +6,7 @@
 
 <br>
 
-[View live website here!](https://flask-recipe-project-sian.herokuapp.com/get_recipes)
+[View live website here!](https://cooknride.herokuapp.com/get_recipes)
 
 [View GitHub repository here!](https://github.com/ictwise/pp3)
 
@@ -342,14 +342,13 @@ Requirements to deploy:
 * An IDE (Gitpod)
 * Python3 (In order to to run the application and use Flask)
 * PIP3 (To install all application imports, such as Flask and OS)
-* A template folder (To link app routes)
 * Databases (MongoDB Atlas, PostgreSQL)
 
 <br>
 
 
 ## GitHub Pages
-1. Log into [GitHub](https://github.com/)
+1. Log into [GitHub](https://github.com/ictwise/pp3)
 2. From the list of repositories, select the repository wanting to deploy.
 3. From the menu items near the top of bthe page, select "Settings"
 4. Scroll down to the GitHub Pages section.
