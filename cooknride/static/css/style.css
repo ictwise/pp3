@@ -12,6 +12,15 @@ body {
     background-size: cover;
     background-position: center;
 }
+.nav-wrapper {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 993px) {
+    .right {
+      display: flex;
+    }
+  }
 .card {
     height: 450px; /* or any other value that you think is appropriate */
     overflow: hidden;
