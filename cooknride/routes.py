@@ -13,7 +13,6 @@ from datetime import datetime
 @app.route("/get_recipes")
 def get_recipes():
     if "user" in session:
-        user_id = session["user"]
         current_user = session["user"]
         recipes = list(mongo.db.recipes.find())
         return render_template(

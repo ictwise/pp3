@@ -1,8 +1,6 @@
 import os
-import re
 from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+    Flask, session)
 from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -36,8 +34,7 @@ else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://", 1)
-    print("DB URI HERE: ", uri)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
+        app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
 
 
 db = SQLAlchemy(app)
