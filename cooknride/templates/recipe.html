@@ -9,18 +9,18 @@
          </div>
          <hr>
         <div>
-          <span class="card-title"><h3 class="center-align light-blue-text text-darken-4">{{ recipe.title }}</span></h3>
+          <h3 class="card-title center-align light-blue-text text-darken-4">{{ recipe.title }}</h3>
           <h4>Ingredients</h4>
           <div>{{ recipe.ingredients }}</div>
           <h4>Method</h4>
           <div>{{ recipe.method }}</div>
           <h4>Date Posted</h4>
-          <div>{{ recipe.date_posted }}
-          <br>{{ recipe.user_id }}</br>
+          <div>{{ recipe.date_posted }}<br/>
+          {{ recipe.user_id }}<br/>
         </div>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('get_recipes') }}"class="btn-small green">Recipe List</a>
+          <a href="{{ url_for('get_recipes') }}" class="btn-small green">Recipe List</a>
          
         </div>
       </div>
