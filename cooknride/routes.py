@@ -42,7 +42,7 @@ def get_cuisines():
 
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage cuisines!")
-        return redirect(url_for("login"))
+        return redirect(url_for("get_cuisines"))
 
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     return render_template("cuisines.html", cuisines=cuisines)
@@ -174,12 +174,12 @@ def delete_recipe(_id):
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = Users.query.filter(Users.user_name ==
-                                           request.form.get("username").lower()
-                                           ).all()
+        existing_user = Users.query.filter(
+            (Users.user_name == request.form.get("username").lower()) |
+            (Users.email == request.form.get("email").lower())).all()
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username or email already exists")
             return redirect(url_for("register"))
 
         user = Users(
@@ -245,7 +245,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("get_recipes"))
 
 
 @app.errorhandler(404)

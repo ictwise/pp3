@@ -147,15 +147,16 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
 
 <br>
 
+
+
 #### Responsive Design - PASS
 
- - All pages were tested using Chrome and Firefox, Edge. 
+ - All pages were opened using Chrome and Firefox, Edge. 
  - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
    - Desktop 
-   - Galaxy Android phones
-- All the pages were also tested manually using;
+ - All the pages were also tested manually using;
    - Samsung Galaxy S20
-
+![screen](./img_testing/responsive.png)
   
 <br>
 

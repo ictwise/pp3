@@ -10,11 +10,11 @@
 
 The following updates have been implemented:
 
-- Reviewed and tested the code, rewrote the [testing.md ](testing/testing.md)file, and added screenshots of each page with official validation.
+- Tested the code, implemented changes where w3validator indicated. Rewrote the [testing.md ](testing/testing.md)file, and added screenshots of each page with official validation.
 - Rewrote the deployment process section of the Readme file to include details of the database tables and fields.
 - Turned off DEBUG mode in the production version of the code for security purposes.
-- Acknowledge that the commit messages were not adequate, but decided not to rewrite them after looking into the process. This is because rewriting commit messages is not encouraged by the coding community, especially on team projects. Will strive to improve commit messages in the future.
 - Restyled the home page so that recipes are shown in cards, with 3 cards across on large screens, 2 across on medium screens, and 1 card on mobile. Also ensured that the app is fully responsive. Additionally, added code to hide edit and delete buttons for non-creators and non-admin users for security reasons.
+- I acknowledge that the commit messages were not adequate, but decided not to rewrite them after looking into the process. This is because rewriting commit messages is not encouraged by the coding community, especially on team projects. Will strive to improve commit messages in the future.
 
 Thank you for your feedback, and I hope that these updates meet your expectations.
 
@@ -174,7 +174,6 @@ Every page of the website features a consistently responsive and intuitive layou
 **General features**
 * Fixed navbar to be seen at all times.
 * Responsive site on all devices. 
-* Fixed on top of the page on all device sizes.
 * Shown as a collapsible navbar (hamburger button) triggered at tablets and mobile devices. 
 * Search bar allowing visitors to search for recipes. 
 
