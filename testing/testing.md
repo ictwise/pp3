@@ -12,155 +12,47 @@
 
 ## Contents Table
 
-1. [**Testing User Stories from UX Design Section**](#testing-user-stories-from-ux-design-section)
-    - **First Time Visitor Goals**
-    - **Returning Visitor Goals**
+1. [**Manual Testing**](#manual-testing)
+
+  * Testing Features
+  * Navigation and Links Testing
+  * Security Testing
+
   
 
-2. [**Testing**](#testing)
+2. [**Automated Testing**](#automated-testing)
   * Automated Testing
       - **W3C Markup Validator Results**
       - **W3C CSS Validator Results**
       - **JSHint Results**
 
-  * Manual Testing
+  
 
 3. [**Bugs Discovered**](#bugs-discovered)
 
 <br>
 
-# Testing User Stories from UX Design Section
+## Manual Testing
 
-<br>
-
-### First Time Visitor Goals
-
-<br>
-
-    * As a first time visitor, I want to easily understand the main purpose of the site.
-    * As a first time visitor, I want the site navigation to be intutive, user friendly and over all ease-of-use.
-    * As a first time visitor, I want to find recipes that will improve my cycling performance.
-    * As a first time visitor, I want to easily access the recipes. 
-    * As a first time visitor, I want to be able to create, read, update, delete and search for recipes.
-    * As a first time visitor, I want to be able to take part of this community/recipe bank by be able to register. 
+### Testing  Features
 
 
+This table presents test results for various features of cooknride. The tests include checking the appearance of links in the navigation bar, the login and registration processes, user access to the website, the ability to view, edit, and delete recipes, and the rendering of recipe detail pages. All tests have passed.
 
-![Home Page view](img_testing/home.png)
+| Feature | Test | Pass/Fail | Image |
+| --- | --- | --- | --- |
+| The navigation bar displays links to the Logo, Home, Login, and Register pages when the user is not logged in. | Recipes.html and recipe.html have been tested for compatibility on multiple devices and browsers. | Pass |![Screen](./img_testing/test_nvabar_not_logged_in.png)
+| NavBar shows Logo, Home, New Recipe, Manage Cuisines and LogOut Links when user logged in. | All pages of the website have been tested for compatibility on multiple devices and browsers. | Pass |![Screen](./img_testing/test_navbar_logged_in.png)
+| Login Username and Password combination not in the database | The website returns the login page with the message "Incorrect Username and/or Password" when an invalid combination of username and password is entered | Pass |![Screen](./img_testing/test_incorrect_login.png)
+| Register User | A new user can be registered only if the entered username and email do not already exist in the database. | Pass |![Screen](./img_testing/test_user_exists.png)
+| Users Can log in | Successfully logging in as an Admin user or logging in as a test user results in the display of the profile page with a welcome message. | Pass |![Screen](./img_testing/test_profile.png)
+| Admin User can view edit delete recipies | The recipes page displays the view, edit, and delete buttons, only to Admin | Pass | ![Screen](./img_testing/test_admin_edit_delete.png)
+| Non Admin users can only edit and delete their own recipies | The recipe page displays a view button next to all recipes. For non-logged-in users, only the view option is available. For logged-in users, edit and delete buttons are shown only next to recipes that they have created (unless Admin). | Pass |![Screen](./img_testing/test_non_admin_edit_delete.png)
+| Delete recipe | Both the admin and the user who created a recipe are able to delete that recipe. | Pass |recipe deleted
+| View recipe detail | Recipe details are accessible to anyone and they are displayed properly on all tested devices. | Pass |![Screen](./img_testing/test_recipe_detail.png) 
+ |
 
-### Returning Visitor Goals
-
-<br>
-
-* Returning Visitor Goals
-
-    * As a returning visitor, I want to be able to easily register if I didn't last time visiting. 
-    * As a returning visitor, I want to be able to easily log in, if I registered last time visiting. 
-    * As a returning visitor, I want to be able to create, read, update, delete and search for recipes.
-    * As a returning visitor, I want to be able to reach out to siteowner for any possible questions.
-
-<br>
-
-![Log In page with contact information](login_screen.png)
-
-
-
-# Testing
-
-<br>
-
-### Automated Testing
-
-<br>
-
-I used https://validator.w3.org/ to test all pages, no errors found. One warning was found I checked base.html and was satisfied that the lack of heading styles wasn't an issue.
-
-
-<br>
-
-<details><summary><b>Click here for HTML Validator results</b></summary>
-
-- __Home__
-<p align="center">
-  <img src="img_testing/w3_val_home.png" >
-</p>
-
-
-- __Recipe__
-<p align="center">
-  <img src="img_testing/w3_val_add_recipe.png" >
-</p>
-
-- __Profile__
-<p align="center">
-  <img src="img_testing/w3_val_profile.png" >
-</p>
-
-- __Log In__
-<p align="center">
-  <img src="img_testing/w3_val_login.png" >
-</p>
-
-- __Register__
-<p align="center">
-  <img src="img_testing/w3_val_add_register.png" >
-</p>
-
-- __Add Recipes__
-<p align="center">
-  <img src="img_testing/w3_val_add_recipe.png" >
-</p>
-
-
-</details>
-
-<details><summary><b>Click here for CSS Validator results</b></summary>
-
-- __CSS Validator Results__
-<p align="center">
-  <img src="img_testing/w3css_error.png" >
-  One error shows but this is form the materialize CDN and not part of my code.
-</p>
-</details>
-
-<details><summary><b>Click here for JSHint results</b></summary>
-
-- __JSHint Results__
-<p align="center">
-  <img src="img_testing/jshint.png" >
-</p>
-</details>
-
-<details><summary><b>Click here for pycodestyle</b></summary>
-
-- __pycodestyle__
-<p align="center">
-  <img src="img_testing/pycode.png" >
-</p>
-</details>
-
-<br>
-
-<br>
-
-### Manual Testing
-
-<br>
-
-
-
-#### Responsive Design - PASS
-
- - All pages were opened using Chrome and Firefox, Edge. 
- - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
-   - Desktop 
- - All the pages were also tested manually using;
-   - Samsung Galaxy S20
-![screen](./img_testing/responsive.png)
-  
-<br>
-
-### Functionality Testing
+### Navigation and Links Testing
 
 <br>
   
@@ -235,6 +127,119 @@ I used https://validator.w3.org/ to test all pages, no errors found. One warning
 - Tested register with a taken username. **PASS**
 - Tested register with unallowed character and to few characters. **PASS**
 - Tested typing links directly into address bar. **PASS**
+
+## Automated Testing
+
+<br>
+
+I used https://validator.w3.org/ to test all pages, no errors found. 
+
+
+<br>
+
+<b> HTML Validator results</b>
+
+- __Home__
+<p align="center">
+  <img src="./img_testing/validator_home.png" >
+</p>
+
+
+- __Add Recipe__
+<p align="center">
+  <img src="./img_testing/validator_add_recipe.png" >
+</p>
+
+- __Edit Recipe__
+<p align="center">
+  <img src="./img_testing/validator_edit_recipe.png" >
+</p>
+
+- __Profile__
+<p align="center">
+  <img src="./img_testing/validator_profile.png" >
+</p>
+
+- __Log In__
+<p align="center">
+  <img src="./img_testing/validator_login.png" >
+</p>
+
+- __Edit Cuisine__
+<p align="center">
+  <img src="./img_testing/validator_edit_cuisine.png" >
+</p>
+
+
+- __Add Cuisine__
+<p align="center">
+  <img src="./img_testing/validator_add_cuisine.png" >
+</p>
+
+- __Register__
+<p align="center">
+  <img src="./img_testing/validator_register.png" >
+</p>
+
+- __Profile__
+<p align="center">
+  <img src="./img_testing/validator_profile.png" >
+</p>
+
+- __Recipe Detail__
+<p align="center">
+  <img src="./img_testing/validator_recipe.png" >
+</p>
+
+
+</details>
+
+<b> CSS Validator results</b>
+
+- __CSS Validator Results__
+<p align="center">
+  <img src="img_testing/w3css_error.png" >
+  One error shows but this is form the materialize CDN and not part of my code.
+</p>
+</details>
+
+<details><summary><b>Click here for JSHint results</b></summary>
+
+- __JSHint Results__
+<p align="center">
+  <img src="img_testing/jshint.png" >
+</p>
+</details>
+
+<details><summary><b>Click here for pycodestyle</b></summary>
+
+- __pycodestyle__
+<p align="center">
+  <img src="img_testing/pycode.png" >
+</p>
+</details>
+
+<br>
+
+<br>
+
+
+
+<br>
+
+
+
+#### Responsive Design - PASS
+
+ - All pages were opened using Chrome and Firefox, Edge. 
+ - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
+   - Desktop 
+ - All the pages were also tested manually using;
+   - Samsung Galaxy S20
+![screen](./img_testing/responsive.png)
+  
+<br>
+
   
 ### Google Lighthouse Testing 
   
