@@ -47,6 +47,9 @@ def get_cuisines():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     return render_template("cuisines.html", cuisines=cuisines)
 
+@app.route("/cuisine_deleted")
+def cuisine_deleted():
+    return render_template("cuisine_deleted.html")
 
 @app.route("/add_cuisine", methods=["GET", "POST"])
 def add_cuisine():
@@ -84,7 +87,7 @@ def delete_cuisine(cuisine_id):
     db.session.commit()
     mongo.db.recipes.delete_many({"cuisine_id": str(cuisine_id)})
     flash("Cuisine Successfully Deleted")
-    return redirect(url_for("get_cuisines"))
+    return redirect(url_for("cuisine_deleted"))
 
 
 @app.route("/manage_cuisines")
@@ -233,6 +236,8 @@ def profile(username):
         return render_template("profile.html", username=session["user"])
 
     return redirect(url_for("login"))
+
+
 
 
 @app.route("/logout")
