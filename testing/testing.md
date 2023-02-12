@@ -120,6 +120,19 @@ This table presents test results for various features of cooknride. The tests in
 - Any cuisines deleted will cascade through the recipe collection and delete all associated recipes.
 - All added cuisines appear in the drop down on the add recipe page
   
+
+### Responsive Design - PASS
+
+ - All pages were opened using Chrome and Firefox, Edge. 
+ - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
+   - Desktop 
+ - All the pages were also tested manually using;
+   - Samsung Galaxy S20
+![screen](./img_testing/responsive.png)
+  
+<br>
+
+
 ### Security Testing
   
 - Tested against Edit and Delete buttons working for other users added Recipes. **PASS**
@@ -198,24 +211,23 @@ I used https://validator.w3.org/ to test all pages, no errors found.
 
 - __CSS Validator Results__
 <p align="center">
-  <img src="img_testing/w3css_error.png" >
+  <img src="./img_testing/w3css_error.png" >
   One error shows but this is form the materialize CDN and not part of my code.
 </p>
 </details>
-
-<details><summary><b>Click here for JSHint results</b></summary>
+<b>Click here for JSHint results</b>
 
 - __JSHint Results__
 <p align="center">
-  <img src="img_testing/jshint.png" >
+  <img src="./img_testing/jshint_script.png" >
 </p>
 </details>
 
-<details><summary><b>Click here for pycodestyle</b></summary>
 
-- __pycodestyle__
-<p align="center">
-  <img src="img_testing/pycode.png" >
+
+- __flake8__
+<p align="centlefter">
+    - No errors
 </p>
 </details>
 
@@ -228,17 +240,6 @@ I used https://validator.w3.org/ to test all pages, no errors found.
 <br>
 
 
-
-#### Responsive Design - PASS
-
- - All pages were opened using Chrome and Firefox, Edge. 
- - All pages tested for responsiveness in different device using Google Chrome Developer Tools and Am I Responsive
-   - Desktop 
- - All the pages were also tested manually using;
-   - Samsung Galaxy S20
-![screen](./img_testing/responsive.png)
-  
-<br>
 
   
 ### Google Lighthouse Testing 
