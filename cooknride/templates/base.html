@@ -58,18 +58,18 @@
 	</header>
 
 
-    <section>
+    <div>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div  class="card-panel" style="background-color: navy; color: white">
+                    <div class="card-panel" style="background-color: navy; color: white">
                         <h4 class="flow-text">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-    </section>
+    </div>
 
     <main class="container">
         {% block content %}

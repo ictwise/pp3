@@ -6,6 +6,21 @@
 
 <br>
 
+## Resubmission
+
+The following updates have been implemented:
+
+- Reviewed and tested the code, rewrote the [testing.md ](testing/testing.md)file, and added screenshots of each page with official validation.
+- Rewrote the deployment process section of the Readme file to include details of the database tables and fields.
+- Turned off DEBUG mode in the production version of the code for security purposes.
+- Acknowledge that the commit messages were not adequate, but decided not to rewrite them after looking into the process. This is because rewriting commit messages is not encouraged by the coding community, especially on team projects. Will strive to improve commit messages in the future.
+- Restyled the home page so that recipes are shown in cards, with 3 cards across on large screens, 2 across on medium screens, and 1 card on mobile. Also ensured that the app is fully responsive. Additionally, added code to hide edit and delete buttons for non-creators and non-admin users for security reasons.
+
+Thank you for your feedback, and I hope that these updates meet your expectations.
+
+
+
+
 [View live website here!](https://cooknride.herokuapp.com/get_recipes)
 
 [View GitHub repository here!](https://github.com/ictwise/pp3)
@@ -360,16 +375,16 @@ Requirements to deploy:
 
 ## Forking the GitHub Repository
 Making a copy of the original repository on our GitHub account to view or to make changes without affecting the original repository;
-1. Log into [GitHub](https://github.com/) and locate the repository.
+1. Log into [GitHub](https://github.com/ictwise/pp3) and locate the repository.
 2. At the top of the Repository, just above the "Settings" button on the menu, locate the "Fork" button.
 3. You should now have a copy of the original repository in your GitHub account.
 
 <br>
 
-## Making a Local Clone
-1. Install the Gitpod Browser Extentions for Chrome.
-2. After installation, restart the browser. 
-3. Log in to [Gitpod](https://www.gitpod.io/) with your gitpod account.
+## Making a Local Clone using gitpod
+1. Log in to [Gitpod]() with your gitpod account.
+2. On the [Workspaces page](https://gitpod.io/workspaces)  click New Workspace
+3. In Context URL past or type github.com/ictwise/pp3 - click New Workspace
 4. Navigate to the Project GitHub repository.
 5. Click the green "Gitpod" button in the top right corner of the repository.
 6. This triggers a new gitpod workspace to be created from the code in GitHub where you can work locally.
