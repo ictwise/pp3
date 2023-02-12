@@ -245,15 +245,59 @@ I used https://validator.w3.org/ to test all pages, no errors found.
   
   - All pages were tested using Google's Lighthouse.
   
-  <details><summary><b>Click here for Lighthouse results</b></summary>
+  <b>Lighthouse results</b>
   
- __Home__
+- __Home__
 <p align="center">
-  <img src="img_testing/lighthouse.png" >
+  <img src="./img_testing/lighthouse_home.png" >
 </p>
 
-</details>
 
+- __Add Recipe__
+<p align="center">
+  <img src="./img_testing/lighthouse_add_recipe.png" >
+</p>
+
+- __Edit Recipe__
+<p align="center">
+  <img src="./img_testing/lighthouse_edit_recipe.png" >
+</p>
+
+- __Profile__
+<p align="center">
+  <img src="./img_testing/lighthouse_profile.png" >
+</p>
+
+- __Log In__
+<p align="center">
+  <img src="./img_testing/lighthouse_login.png" >
+</p>
+
+- __Edit Cuisine__
+<p align="center">
+  <img src="./img_testing/lighthouse_edit_cuisine.png" >
+</p>
+
+
+- __Add Cuisine__
+<p align="center">
+  <img src="./img_testing/lighthouse_add_cuisine.png" >
+</p>
+
+- __Register__
+<p align="center">
+  <img src="./img_testing/lighthouse_register.png" >
+</p>
+
+- __Profile__
+<p align="center">
+  <img src="./img_testing/lighthouse_profile.png" >
+</p>
+
+- __Recipe Detail__
+<p align="center">
+  <img src="./img_testing/lighthouse_recipe.png" >
+</p>
 <br>
 
 # Bugs Discovered
