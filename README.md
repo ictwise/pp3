@@ -63,7 +63,7 @@ ___
     * Known Bugs
 
 6. [**Deployment**](#deployment)
-    * GitHub Pages
+    
     * Forking the GitHub Repository
     * Making a Local Clone
 
@@ -353,28 +353,37 @@ See separate [testing.md file](testing/testing.md)
 
 Requirements to deploy:
 
-* An IDE (Gitpod)
-* Python3 (In order to to run the application and use Flask)
-* PIP3 (To install all application imports, such as Flask and OS)
-* Databases (MongoDB Atlas, PostgreSQL)
+For this project, Heroku, a cloud platform, was used for deployment of the back-end technologies. To deploy a website on Heroku, fork to GitHub, create requirements.txt and procfile, 
 
+For Data MongoDB Atlas and ElephantSQL were used. Before you can deploy to Heroku you will need to create accounts with both sites and MongoDB you will need to create your database, collection and documents.
+
+## Creating your MongoDB database
+
+Set up a MongoDB Atlas account: If you don't already have a MongoDB Atlas account, you'll need to create one. Follow the instructions on the MongoDB Atlas website to create an account and set up a new project.
+
+In your new project, create a new database (called cooknride) and in that database create a collection.
+- recipes, insert Document a with the following key-value pairs to create a sample entry
+
+| Key | Value | 
+| --- | --- | 
+| _id (created by MongoDB) |ObjectId| 
+|cuisine_id|	1|
+|title	|Mozzarella chicken with butter bean mash|
+|ingredients	|4 chicken breasts, boned and skinned, calorie controlled cooking oil spray 1 medium onion
+|date_posted	|2022-10-16 |
+|
+
+Click the 'Connect' button next to 
+
+
+In your forked repository,  the env.py you created. This file may be called something like "config.py" or "config.cfg". Update the file to include your MongoDB Atlas connection details, including the cluster URL, database name, and credentials.
 <br>
 
-
-## GitHub Pages
-1. Log into [GitHub](https://github.com/ictwise/pp3)
-2. From the list of repositories, select the repository wanting to deploy.
-3. From the menu items near the top of bthe page, select "Settings"
-4. Scroll down to the GitHub Pages section.
-5. Under "Source" click the drop-down menu labbelled "None" and select "Master Branch"
-6. On selecting "Master Branch" the page is automatically refreshed, website is now deplyed. 
-7. Scroll back down to the GitHub Pages section to retrieve the link to the deployed site. 
-
-<br>
+https://code-institute-students.github.io/deployment-docs/02-elephantsql/
 
 ## Forking the GitHub Repository
 Making a copy of the original repository on our GitHub account to view or to make changes without affecting the original repository;
-1. Log into [GitHub](https://github.com/ictwise/pp3) and locate the repository.
+1. Log into [GitHub](https://github.com/) navigate to https://github.com/ictwise/pp3 .
 2. At the top of the Repository, just above the "Settings" button on the menu, locate the "Fork" button.
 3. You should now have a copy of the original repository in your GitHub account.
 
@@ -388,28 +397,33 @@ Making a copy of the original repository on our GitHub account to view or to mak
 5. Click the green "Gitpod" button in the top right corner of the repository.
 6. This triggers a new gitpod workspace to be created from the code in GitHub where you can work locally.
 
-## To work on the project code within a local IDE 
-1. Log in to [GitHub](https://github.com/) and locate the GitHub Repository.
-2. Under the repository name, click "Clone or download".
-3. In the clone with HTTPs section, copy the clone URL for the repository.
-4. Open the terminal in your local IDE.
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type **git clone**, and then paste the URL you copied in Step 3.
-7. Press Enter. Your local clone will be created.
+env.py
+```
+import os
+os.environ.setdefault("IP", "0.0.0.0") 
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("DEBUG", "False")
+os.environ.setdefault("DEVELOPMENT", "False") 
+os.environ.setdefault("SECRET_KEY", "xxxxxxxx")
+os.environ.setdefault(
+    "MONGO_URI",  "mongodb+srv://xxxxxxxxxx:xxxxxxxxx@xxxxxxxxxxx") 
+os.environ.setdefault("MONGO_DBNAME", "cooknride")
+os.environ.setdefault("DATABASE_URL", "postgres://xxxxxxx:xxxxxxxxx@lucky.db.elephantsql.com/xxxxd")
 
-<br>
+*where x reresents your values
+```
 
 ## Heroku Deployment
-1. Before deploying your project create a requirements.txt file.
-2. Create a Procfile file.
-3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
+1. Install the necessary Python packages: You'll need to install the necessary Python packages to run the app and connect to the databases. You can do this by running the following command in your terminal: pip install -r requirements.txt
+2. Make sure the Procfile and requirements.txt have pushed to the repository.
+3. Create an env.py file.
 3. Log in to [Heroku](https://dashboard.heroku.com/apps).
 4. Select "New" on your dashboard and then select "Create new app".
 5. Choose a name for your application, select your region, and then click "Create app".
 6. From the app dashboard, navigate to "Deploy" tab.
 7. From Deployment method select "Github" and confirm the linking of the Heroku app by clicking "Search" then select your repository name.
 8. Once you select your repository, click on "Connect".
-9. After you connected to your repository, click on "Settings" tab on your app dashboard, and click on "Reveal Config Vars" and add your configuration variables to Heroku.
+9. After you connected to your repository, click on "Settings" tab on your app dashboard, and click on "Reveal Config Vars" and add your configuration variables to Heroku. They should match the config variables in your env.py
 10. Navigate to "Deploy" tab, and from Manual deploy choose your master branch, and click "Deploy Branch".
 11. After you deployed your branch "Enable Automatic Deploys".
 12. Site is successfully deployed, any further changes will automatically be updated everytime they are commited and pushed on Github.
