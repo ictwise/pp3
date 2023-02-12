@@ -42,14 +42,16 @@ def get_cuisines():
 
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage cuisines!")
-        return redirect(url_for("get_cuisines"))
+        return redirect(url_for("login"))
 
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     return render_template("cuisines.html", cuisines=cuisines)
 
+
 @app.route("/cuisine_deleted")
 def cuisine_deleted():
     return render_template("cuisine_deleted.html")
+
 
 @app.route("/add_cuisine", methods=["GET", "POST"])
 def add_cuisine():
@@ -236,8 +238,6 @@ def profile(username):
         return render_template("profile.html", username=session["user"])
 
     return redirect(url_for("login"))
-
-
 
 
 @app.route("/logout")
