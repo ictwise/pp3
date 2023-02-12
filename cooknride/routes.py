@@ -79,15 +79,17 @@ def edit_cuisine(cuisine_id):
 
 @app.route("/delete_cuisine/<int:cuisine_id>")
 def delete_cuisine(cuisine_id):
-    if session["user"] != "admin":
+    if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage cuisines!")
-        return redirect(url_for("cuisines"))
+        return redirect(url_for("get_cuisines"))
 
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     db.session.delete(cuisine)
     db.session.commit()
     mongo.db.recipes.delete_many({"cuisine_id": str(cuisine_id)})
+    flash("Cuisine Successfully Deleted")
     return redirect(url_for("get_cuisines"))
+
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
