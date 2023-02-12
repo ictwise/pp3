@@ -55,4 +55,10 @@ body {
         width: 80%;
       }
     
+
+    #r-card {
+      height: 200px; /* or any other value that you think is appropriate */
+      overflow: hidden;
+    }
+    
 }
