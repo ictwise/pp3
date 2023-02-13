@@ -373,13 +373,14 @@ In your new project, create a new database (called cooknride) and in that databa
 |date_posted	|2022-10-16 |
 |
 
-Click the 'Connect' button next to 
+Click the 'Connect' button next to yout cluster name to set up connection. Frome the dialog box chose 'connect your application', select your driver and version. A connection string is created that can be added to the env.py as the value for MONGO_URI and in Heroku config vars.
 
 
-In your forked repository,  the env.py you created. This file may be called something like "config.py" or "config.cfg". Update the file to include your MongoDB Atlas connection details, including the cluster URL, database name, and credentials.
-<br>
-
+ElephantSQL
+Signup for an ElephantSQL account. You will find excelent instructions here.
 https://code-institute-students.github.io/deployment-docs/02-elephantsql/
+
+Create an instance. Click on the instance to view connection details that can be added to you env.py file. 
 
 ## Forking the GitHub Repository
 Making a copy of the original repository on our GitHub account to view or to make changes without affecting the original repository;
@@ -389,15 +390,10 @@ Making a copy of the original repository on our GitHub account to view or to mak
 
 <br>
 
-## Making a Local Clone using gitpod
-1. Log in to [Gitpod]() with your gitpod account.
-2. On the [Workspaces page](https://gitpod.io/workspaces)  click New Workspace
-3. In Context URL past or type github.com/ictwise/pp3 - click New Workspace
-4. Navigate to the Project GitHub repository.
-5. Click the green "Gitpod" button in the top right corner of the repository.
-6. This triggers a new gitpod workspace to be created from the code in GitHub where you can work locally.
+### env.py and Heroku Config Vars
+In your forked repository,  create a file at the project route called env.py. Create a .gitignore file and add env.py to it. Update env.py to include your MongoDB Atlas connection details, including the cluster URL, database name, and credentials. DO NOT PUSH YOUR REPOSITORY UNTIL THE ENV.PY FILE HAS BEEN ADDED TO .GITIGNORE.
 
-env.py
+
 ```
 import os
 os.environ.setdefault("IP", "0.0.0.0") 
@@ -410,13 +406,18 @@ os.environ.setdefault(
 os.environ.setdefault("MONGO_DBNAME", "cooknride")
 os.environ.setdefault("DATABASE_URL", "postgres://xxxxxxx:xxxxxxxxx@lucky.db.elephantsql.com/xxxxd")
 
-*where x reresents your values
+*where x represents your values
 ```
+<br>
+
+
+run set_pg
+run db.create_all()
+
 
 ## Heroku Deployment
 1. Install the necessary Python packages: You'll need to install the necessary Python packages to run the app and connect to the databases. You can do this by running the following command in your terminal: pip install -r requirements.txt
 2. Make sure the Procfile and requirements.txt have pushed to the repository.
-3. Create an env.py file.
 3. Log in to [Heroku](https://dashboard.heroku.com/apps).
 4. Select "New" on your dashboard and then select "Create new app".
 5. Choose a name for your application, select your region, and then click "Create app".
@@ -427,8 +428,18 @@ os.environ.setdefault("DATABASE_URL", "postgres://xxxxxxx:xxxxxxxxx@lucky.db.ele
 10. Navigate to "Deploy" tab, and from Manual deploy choose your master branch, and click "Deploy Branch".
 11. After you deployed your branch "Enable Automatic Deploys".
 12. Site is successfully deployed, any further changes will automatically be updated everytime they are commited and pushed on Github.
-13. Database passwords and details available on request.
+
 <br>
+
+
+## Making a Local Clone using gitpod
+1. Log in to [Gitpod]() with your gitpod account.
+2. On the [Workspaces page](https://gitpod.io/workspaces)  click New Workspace
+3. In Context URL past or type github.com/ictwise/pp3 - click New Workspace
+4. Navigate to the Project GitHub repository.
+5. Click the green "Gitpod" button in the top right corner of the repository.
+6. This triggers a new gitpod workspace to be created from the code in GitHub where you can work locally.
+
 
 # Credits
 * My mentor Chris Quinn.
