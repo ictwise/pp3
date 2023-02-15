@@ -6,7 +6,7 @@
 
 <br>
 
-## Resubmission
+# Resubmission
 
 The following updates have been implemented:
 
@@ -364,16 +364,16 @@ Set up a MongoDB Atlas account: If you don't already have a MongoDB Atlas accoun
 In your new project, create a new database (called cooknride) and in that database create a collection.
 - recipes, insert Document a with the following key-value pairs to create a sample entry
 
-| Key | Value | 
-| --- | --- | 
-| _id (created by MongoDB) |ObjectId| 
-|cuisine_id|	1|
-|title	|Mozzarella chicken with butter bean mash|
-|ingredients	|4 chicken breasts, boned and skinned, calorie controlled cooking oil spray 1 medium onion
-|date_posted	|2022-10-16 |
+| Key | Value | Type | 
+| --- | --- | --- | 
+| _id (created by MongoDB) | (created by MongoDB) | ObjectId|
+|cuisine_id|	1| string|
+|title	|Mozzarella chicken with butter bean mash| string|
+|ingredients	|4 chicken breasts, boned and skinned, calorie controlled cooking oil spray 1 medium onion| string|
+|date_posted	|2022-10-16 | string|
 |
 
-Click the 'Connect' button next to yout cluster name to set up connection. Frome the dialog box chose 'connect your application', select your driver and version. A connection string is created that can be added to the env.py as the value for MONGO_URI and in Heroku config vars.
+Click the 'Connect' button next to the cluster name to view the  connection data. From the dialog box chose 'connect your application', select your driver and version. A connection string is created that can be added to the env.py as the value for MONGO_URI and in Heroku config vars.
 
 
 ElephantSQL
@@ -410,9 +410,11 @@ os.environ.setdefault("DATABASE_URL", "postgres://xxxxxxx:xxxxxxxxx@lucky.db.ele
 ```
 <br>
 
+#### In the terminal
 
-run set_pg
-run db.create_all()
+1. run set_pg
+
+2. run db.create_all()
 
 
 ## Heroku Deployment
